@@ -1,711 +1,1236 @@
-<!doctype html>
-<html class="no-js" lang="en">
-
-
-<!-- Mirrored from karan.netlify.app/demo/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 06:20:33 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karan Maggo - Web Designer Portfolio</title>
 
-    <title>karan - Portfolio </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <meta name="description" content="karan - HTML5 Portfolio CV/Resume Template,CV Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="default/km-favi.png" type="image/x-icon" />
-    <!--=== Styelesheet Css ===-->
-    <link rel="stylesheet" type="text/css" href="default/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="default/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /*
+        ========================================
+        CUSTOM STYLES
+        ========================================
+        */
+
+        :root {
+            --primary-color: #00aaff; /* A bright, modern blue */
+            --dark-color: #1a1a1a;
+            --light-color: #f4f4f4;
+            --secondary-dark: #222;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+        }
+
+        .section-subheading {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #ccc;
+            margin-bottom: 3rem;
+        }
+
+        section {
+            padding: 80px 0;
+            overflow-x: hidden; /* Prevents horizontal scroll from animations */
+        }
+
+        .bg-dark-secondary {
+            background-color: var(--secondary-dark);
+        }
+
+        /*
+        ========================================
+        Navbar
+        ========================================
+        */
+        .navbar {
+            background-color: rgba(26, 26, 26, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: #fff !important;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ccc !important;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+            margin: 0 15px;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease-out;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff !important;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        @media (max-width: 991.98px) {
+            .nav-link {
+                margin: 10px 0;
+                padding: 10px;
+                text-align: center;
+            }
+            .nav-link::after {
+                display: none;
+            }
+            .nav-link:hover,
+            .nav-link.active {
+                background-color: var(--primary-color);
+                color: #fff !important;
+                border-radius: 5px;
+            }
+        }
+
+
+        /*
+        ========================================
+        Home (Hero) Section - Parallax
+        ========================================
+        */
+        #home {
+            min-height: 100vh;
+            /* Placeholder Image - replace with your own */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed; /* This creates the parallax effect */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        #home h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        #home p {
+            font-size: 1.75rem;
+            font-family: var(--font-heading);
+            font-weight: 300;
+            color: var(--primary-color);
+            margin-top: 1rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Simple animated chevron */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /*
+        ========================================
+        About Section
+        ========================================
+        */
+        #about img {
+            max-width: 350px;
+            border-radius: 10px;
+            border: 5px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .about-text .lead {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: #ccc;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 20px;
+            margin-top: 1.5rem;
+        }
+
+        .education-item {
+            background-color: var(--secondary-dark);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+        .education-item h5 {
+            color: var(--primary-color);
+            margin: 0;
+        }
+        .education-item p {
+            margin: 5px 0 0;
+            color: #ccc;
+        }
+
+        /*
+        ========================================
+        Skills Section
+        ========================================
+        */
+        .skill-item {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--secondary-dark);
+            border-radius: 10px;
+            transition: all 0.3s ease-out;
+            border: 1px solid #333;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            background-color: #2a2a2a;
+        }
+
+        .skill-item i {
+            font-size: 4rem;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+        
+        /* Custom colors for brand icons on hover */
+        .skill-item:hover .fa-html5 { color: #E34F26; }
+        .skill-item:hover .fa-css3-alt { color: #1572B6; }
+        .skill-item:hover .fa-js { color: #F7DF1E; }
+        .skill-item:hover .fa-bootstrap { color: #7952B3; }
+        .skill-item:hover .fa-angular { color: #DD0031; }
+        .skill-item:hover .fa-sass { color: #CC6699; }
+        .skill-item:hover .fa-adobe { color: #FF0000; }
+        .skill-item:hover .fa-c { color: #395698; } /* Canva placeholder */
+
+        .skill-item h4 {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+        }
+
+
+        /*
+        ========================================
+        Experience (Timeline)
+        ========================================
+        */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* The vertical line */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        /* The circles on the timeline */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: #fff;
+            border: 4px solid var(--primary-color);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Left-side items */
+        .timeline-item.left {
+            left: 0;
+        }
+
+        /* Right-side items */
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        /* Adjust ::after for left/right */
+        .timeline-item.left::after {
+            right: -10px;
+        }
+        .timeline-item.right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--secondary-dark);
+            position: relative;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+        }
+        .timeline-content .company {
+            font-weight: 600;
+            color: #ccc;
+        }
+        .timeline-content .date {
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+        .timeline-content .badge {
+            margin-right: 5px;
+        }
+
+        /* Responsive timeline */
+        @media (max-width: 767.98px) {
+            .timeline::after {
+                left: 30px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item.left,
+            .timeline-item.right {
+                left: 0%;
+            }
+            .timeline-item.left::after,
+            .timeline-item.right::after {
+                left: 21px; /* 30px - (20px/2) - 4px border */
+            }
+        }
+
+        /*
+        ========================================
+        Projects Section - Flip Card
+        ========================================
+        */
+        .project-card-container {
+            perspective: 1000px;
+            margin-bottom: 30px;
+        }
+        .project-card {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        .project-card-container:hover .project-card {
+            transform: rotateY(180deg);
+        }
+        .project-card-front,
+        .project-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: var(--secondary-dark);
+        }
+        .project-card-front {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #444;
+        }
+        /* Placeholder styling for front */
+        .project-card-front {
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        .project-card-front::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+            z-index: 1;
+        }
+        .project-card-front .project-title {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+        .project-card-front .project-title h4 {
+            font-size: 1.5rem;
+        }
+        .project-card-front .project-title span {
+            font-size: 1rem;
+            color: var(--primary-color);
+            font-weight: 300;
+        }
+
+        .project-card-back {
+            transform: rotateY(180deg);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid var(--primary-color);
+            z-index: 2; /* <<<--- FIX ADDED HERE */
+        }
+        .project-card-back h5 {
+            color: var(--primary-color);
+        }
+        .project-card-back p {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        .project-card-back .btn {
+            margin-top: auto;
+            position: relative; /* <<<--- FIX ADDED HERE */
+            z-index: 3; /* <<<--- FIX ADDED HERE */
+        }
+
+        /*
+        ========================================
+        Contact Section
+        ========================================
+        */
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .contact-info a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+        .social-icons a {
+            font-size: 2rem;
+            color: #888;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /*
+        ========================================
+        Footer
+        ========================================
+        */
+        footer {
+            padding: 30px 0;
+            background-color: var(--secondary-dark);
+            text-align: center;
+            color: #888;
+        }
+
+        /*
+        ========================================
+        On-Scroll Animations
+        ========================================
+        */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animation for children */
+        .animate-on-scroll.visible .animate-child {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInChild 0.6s ease-out forwards;
+        }
+        @keyframes fadeInChild {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Delay for staggered items */
+        .animate-child:nth-child(1) { animation-delay: 0.1s; }
+        .animate-child:nth-child(2) { animation-delay: 0.2s; }
+        .animate-child:nth-child(3) { animation-delay: 0.3s; }
+        .animate-child:nth-child(4) { animation-delay: 0.4s; }
+        .animate-child:nth-child(5) { animation-delay: 0.5s; }
+        .animate-child:nth-child(6) { animation-delay: 0.6s; }
+        .animate-child:nth-child(7) { animation-delay: 0.7s; }
+        .animate-child:nth-child(8) { animation-delay: 0.8s; }
+        .animate-child:nth-child(9) { animation-delay: 0.9s; }
+        .animate-child:nth-child(10) { animation-delay: 1.0s; }
+
+    </style>
 </head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="80">
 
-<body>
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <!--===============================================================================-->
-
-    <!--====== Preloader Start ======-->
-    <div class="preloader">
-        <div class="preloader-spinner">
-            <div class="display-table">
-                <div class="display-table-cell">
-                    <img src="default/img/preloader.svg" alt="Divergent Studio">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--====== Preloader End ======-->
-
-    <!--====== Header Start ======-->
-    <header id="header-area">
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <!-- <div class="header-social-icons">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div> -->
-                </div>
-
-                <div class="col-md-8">
-                    <div class="menu-icon">
-                        <div class="open-btn">
-                            <span></span>
-                        </div>
-                    </div>
-                </div>
+            <a class="navbar-brand" href="#home">Karan Maggo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
-    <!--====== Header End ======-->
+    </nav>
 
-    <!--====== Off Canvas Menu Start ======-->
-    <div class="off-canvas-menu">
-        <nav class="main-menu">
-            <ul>
-                <li><a href="#header-bottom">Home</a></li>
-                <li><a href="#about-area">About</a></li>
-                <li><a href="#education-area">Education</a></li>
-                <li><a href='#experience-area'>Work Experience</a></li>
-                <li><a href='#portfolio-area'>Portfolio</a></li>
-                <!-- <li><a href="#testimonial-area">Testimonials</a></li>
-                <li><a href='blog.html'>Blog</a></li>
-                <li><a href='single-blog.html'>Single Blog</a></li> -->
-                <li><a href="#footer-area">Contact Me</a></li>
-            </ul>
-        </nav>
-        <button class="menu-close-btn">Close</button>
-    </div>
-    <!--====== Off Canvas Menu End ======-->
-
-    <!--====== HeaderBottom Start ======-->
-    <section id="header-bottom" class="parallax-header">
-        <div class="header-main wow fadeInUp">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="dispaly-table">
-                            <div class="display-table-cell">
-                                <div class="header-bottom">
-                                    <h1>Hello!</h1>
-                                    <h3><span>I'm</span> Karan Maggo</h3>
-                                    <p>Web Designer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section id="home">
+        <div class="container text-center">
+            <h1 class="display-3 animate-on-scroll">Karan Maggo</h1>
+            <p class="lead animate-on-scroll" style="transition-delay: 0.2s;">Web Designer &amp; Frontend Developer</p>
         </div>
+        <a href="#about" class="scroll-down">
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
     </section>
-    <!--====== HeaderBottom End ======-->
 
-    <!--====== About Area Start ======-->
-    <section id="about-area" class="section-padding">
+    <section id="about">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="about-thum-area wow fadeInLeft">
-                        <div class="about-img">
-                            <img src="default/img/714-removebg-preview.jpg" alt="Resume Template">
-                        </div>
-                        <!-- <div class="resume-btn">
-                            <a href="#" src ="default/img/Karan's Resume.pdf"><i class="fa fa-cloud-download"></i> Download Resume</a>
-                        </div> -->
-                    </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 text-center text-lg-start animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1055&q=80" alt="Karan Maggo" class="img-fluid">
                 </div>
-
-                <div class="col-md-6">
-                    <div class="about-content-area wow fadeInRight">
-                        <div class="section-title">
-                            <h2>About Me</h2>
-                        </div>
-
-                        <p>Hello! I’m Karan Maggo. Web Designer with over 1 year of experience. Experienced with all stages of the development cycle for dynamic web projects. Having an in-depth knowledge including advanced HTML5, CSS3, JavaScript, Angular JS. Strong background in management and leadership.</p>
-
-                        <ul class="profile-menu">
-                            <li><span>Name: </span> Karan Maggo</li>
-                            <li><span>Date of birth: </span> 17 February 1997</li>
-                            <li><span>Nationality: </span>Indian</li>
-                            <li><span>Address: </span> Ludhiana, Punjab</li>
-                            <li><span>Phone: </span><a class="phone" href="tel:8968731373">8968731373</a></li>
-                            
-                            <li><span>E-Mail: </span><a class="phone" href="mailto:karanmaggo1997@gmail.com">karanmaggo1997@gmail.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--====== About Area End ======-->
-
-    <!--====== My Interest Area Start ======-->
-    <section id="interest-area" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="section-title">
-                        <h2>My interests</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="interests-content">
-                        <div class="row">
-                            <!--Single My Interest Start-->
-                            <!-- <div class="col-md-2 col-sm-4 col-xs-6">
-                                <div class="interest-item wow fadeInUp">
-                                    <div class="interest-item-content">
-                                        <i class="fa fa-pencil"></i>
-
-                                        <p>Drawing</p>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!--Single My Interest End-->
-
-                            <!--Single My Interest Start-->
-                            <div class="col-md-2 col-sm-3 col-xs-6">
-                                <div class="interest-item wow fadeInDown">
-                                    <div class="interest-item-content">
-                                        <i class="fa fa-plane"></i>
-
-                                        <p>Travel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Single My Interest End-->
-
-                            <!--Single My Interest Start-->
-                            <div class="col-md-2 col-sm-3 col-xs-6">
-                                <div class="interest-item wow fadeInUp">
-                                    <div class="interest-item-content">
-                                        <i class="fa fa-music"></i>
-
-                                        <p>Music</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Single My Interest End-->
-
-                            <!--Single My Interest Start-->
-                            <!-- <div class="col-md-2 col-sm-4 col-xs-6">
-                                <div class="interest-item wow fadeInDown">
-                                    <div class="interest-item-content">
-                                        <i class="fa fa-coffee"></i>
-
-                                        <p>Coffee</p>
-                                    </div>
-                                </div>
-                            </div> -->
-                       <!--Single My Interest End-->
-
-                            <!--Single My Interest Start-->
-                            <div class="col-md-2 col-sm-3 col-xs-6">
-                                <div class="interest-item wow fadeInUp">
-                                    <div class="interest-item-content">
-                                        <i class="fa fa-space-shuttle"></i>
-
-                                        <p>Flying</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Single My Interest End-->
-
-                            <!--Single My Interest Start-->
-                            <div class="col-md-2 col-sm-3 col-xs-6">
-                                <div class="interest-item wow fadeInDown">
-                                    <div class="interest-item-content">
-                                        <i class="fa fa-paint-brush"></i>
-
-                                        <p>Art</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Single My Interest End-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--====== My Interest Area End ======-->
-
-    <!--====== Education Area Start ======-->
-    <section id="education-area" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h2>Education</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="educaton-content">
-                        <div class="cd-timeline">
-                            <!--===Single Education Start===-->
-                          
-                            <!--===Single Education End===-->
-
-                            <!--===Single Education Start===-->
-                            <div class="cd-timeline-block">
-                                <div class="cd-timeline-img">
-                                    <span class="dot"></span>
-                                </div>
-                                <div class="cd-timeline-content">
-                                    <div class="cd-heading wow fadeInRight">
-                                        <h2>Master degree</h2>
-                                        <p><span>Chandigarh University</span> | JULY 2023</p>
-                                    </div>
-                                    <span class="cd-description wow fadeInLeft">
-                                        Master of Computer Application
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="cd-timeline-block">
-                                <div class="cd-timeline-img">
-                                    <span class="dot"></span>
-                                </div>
-                                <div class="cd-timeline-content">
-                                    <div class="cd-heading wow fadeInLeft">
-                                        <h2>Bachalor Degree</h2>
-                                        <p>SEPT 2015 - SPET 2019 | <span>Panjab University</span></p>
-                                    </div>
-                                    <span class="cd-description wow fadeInRight">
-                                       Bachelor of Computer Application
-                                    </span>
-                                </div>
-                            </div>
-                            <!--===Single Education End===-->
-
-                            <!--===Single Education Start===-->
-                          
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--====== Education Area End ======-->
-
-    <!--====== Experience Area Start ======-->
-    <section id="experience-area" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h2>Work Experience</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="experience-content">
-                        <div class="cd-timeline">
-                            <!--===Single Experience Start===-->
-                            <div class="cd-timeline-block">
-                                <div class="cd-timeline-img">
-                                    <span class="dot"></span>
-                                </div>
-                                <div class="cd-timeline-content">
-                                    <div class="cd-heading wow fadeInLeft">
-                                        <h2>WEB DESIGNER</h2>
-                                        <p>OCT 2022 | <span>Impetus Ai Solutions</span></p>
-                                    </div>
-                                    <span class="cd-description wow fadeInRight">
-                                        <h5 class="impetus-work-detail">Work with test engineering team to assure product quality</h5>
-                                        <h5 class="impetus-work-detail">Coordinating the workflow between the end user, product
-                                            OWNER, developer, and yourself</h5>
-                                        <h5 class="impetus-work-detail">Lead code development in each story</h5>
-                                    </span>
-                                </div>
-                            </div>
-                            <!--===Single Experience End===-->
-                            <div class="cd-timeline-block">
-                                <div class="cd-timeline-img">
-                                    <span class="dot"></span>
-                                </div>
-                                <div class="cd-timeline-content">
-                                    <div class="cd-heading wow fadeInLeft">
-                                        <h2>Business Development Executive</h2>
-                                        <p>APRIL 2023| <span>Graphic Future</span></p>
-                                    </div>
-                                    <span class="cd-description wow fadeInRight">
-                                        <h5 class="impetus-work-detail">6 months experience in Graphic Future profile (Freelancer)</h5>
-                                        
-                                    </span>
-                                </div>
-                            </div>
-                            <!--===Single Experience Start===-->
-                            <div class="cd-timeline-block">
-                                <div class="cd-timeline-img">
-                                    <span class="dot"></span>
-                                </div>
-                                <div class="cd-timeline-content">
-                                    <div class="cd-heading wow fadeInRight">
-                                        <h2>BUSINESS ANALYST</h2>
-                                        <p><span>Tekki Web Solutions</span> | JULY 2022 - SEPT 2022</p>
-                                    </div>
-                                    <span class="cd-description wow fadeInLeft">
-                                        <h5 class="impetus-work-detail">Project management with client updates, daily employee reports. Translate stakeholder needs into various tangible deliverables: specs, cases, stories, workflows, data flows.</h5>
-                                    
-                                    </span>
-                                </div>
-                            </div>
-                            <!--===Single Experience End===-->
-
-                            <!--===Single Experience Start===-->
+                <div class="col-lg-7 mt-5 mt-lg-0 animate-on-scroll" style="transition-delay: 0.2s;">
+                    <div class="about-text">
+                        <h2 class="section-heading">About Me</h2>
+                        <h3 class="mb-3">A Growth-Oriented Web Designer</h3>
+                        <p class="lead">To have a growth oriented career, where I can contribute my knowledge and skills to the organization and enhance my experience through continuous learning and teamwork and also help in the growth and fulfillment of the organization.</p>
                         
+                        <h4 class="mt-5 mb-3">Education</h4>
+                        <div class="education-item mb-3">
+                            <h5>Master of Computer Application </h5>
+                            <p>Chandigarh University </p>
+                        </div>
+                        <div class="education-item">
+                            <h5>Bachelor of Computer Application</h5>
+                            <p>Panjab University</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--====== Experience Area End ======-->
 
-    <!--====== Skill Area Start ======-->
-    <!-- <section id="pro-skills-area" class="section-padding">
+    <section id="skills" class="bg-dark-secondary">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h2>Professional Skills</h2>
+            <div class="text-center animate-on-scroll">
+                <h2 class="section-heading">Core Skills</h2>
+                <p class="section-subheading">My technical toolbox for building modern web experiences.</p>
+            </div>
+            
+            <div class="row g-4 animate-on-scroll">
+                <div class="col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-brands fa-html5"></i>
+                        <h4>HTML5</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <h4>CSS3 </h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-brands fa-js"></i>
+                        <h4>JavaScript</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-brands fa-bootstrap"></i>
+                        <h4>Bootstrap</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-brands fa-angular"></i>
+                        <h4>Angular </h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-brands fa-sass"></i>
+                        <h4>SCSS</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-brands fa-adobe"></i>
+                        <h4>Adobe Photoshop</h4>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-solid fa-c"></i>
+                        <h4>Canva</h4>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="skills-area-middle">
-            <div class="container">
-                <div class="skills-content">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="skillst5">
-                           
-                                <div class="skillbar" data-percent="95%">
-                                    <div class="title">HTML 5</div>
-                                    <div class="count-bar color-1">
-                                        <div class="count"></div>
-                                    </div>
-                                </div>
-                           
-                                <div class="skillbar" data-percent="75%">
-                                    <div class="title">javascript</div>
-                                    <div class="count-bar color-1">
-                                        <div class="count"></div>
-                                    </div>
-                                </div>
-                          
-                                <div class="skillbar" data-percent="85%">
-                                    <div class="title">php</div>
-                                    <div class="count-bar color-1">
-                                        <div class="count"></div>
-                                    </div>
-                                </div>
-                     
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="skillst5 float-right">
-                          
-                                <div class="skillbar" data-percent="70%">
-                                    <div class="title">ILLUSTRATOR</div>
-                                    <div class="count-bar color-1">
-                                        <div class="count"></div>
-                                    </div>
-                                </div>
-                            
-                                <div class="skillbar" data-percent="95%">
-                                    <div class="title">photoshop</div>
-                                    <div class="count-bar color-1">
-                                        <div class="count"></div>
-                                    </div>
-                                </div>
-                              
-                                <div class="skillbar" data-percent="90%">
-                                    <div class="title">sony vegas</div>
-                                    <div class="count-bar color-1">
-                                        <div class="count"></div>
-                                    </div>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="skill-area-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="skill-bottom-content">
-                            <div class="single-skill-bottom wow fadeInUp">
-                                <h2>02.</h2>
-                                <h3>WEB DESIGN</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus laoreet dolor metus, eu ullamcorper turpis ornare tincidunt. Vivamus tristique rhoncus enim. Curabitur varius est quis din pat.</p>
-                            </div>
-
-                            <div class="single-skill-bottom sin-skill-middle wow fadeInDown">
-                                <h2>01.</h2>
-                                <h3>UX/UI DESIGN</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus laoreet dolor metus, eu ullamcorper turpis ornare tincidunt. Vivamus tristique rhoncus enim. Curabitur varius est quis din pat.</p>
-                            </div>
-
-                            <div class="single-skill-bottom wow fadeInUp">
-                                <h2>03.</h2>
-                                <h3>APP DESIGN</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus laoreet dolor metus, eu ullamcorper turpis ornare tincidunt. Vivamus tristique rhoncus enim. Curabitur varius est quis din pat.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!--====== Skill Area End ======-->
-
-    <!--====== Portfolio Area Start ======-->
-    <section id="portfolio-area" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="section-title">
-                        <h2>Some Of My Works</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="portfolio-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="portfolio-items">
-                            <div class="row">
-                                <!--=== Single Portfolio Start ===-->
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="portfolio-single">
-                                        <div class="portfolio-thum">
-                                            <img src="default/img/naava.png" alt="">
-                                        </div>
-                                        <div class="portfolio-hover text-center">
-                                            <div class="port-btn-hvr">
-                                                <a href="naava.png" class="image-link"><i class="fa fa-search-plus"></i></a>
-                                                <a href='https://naava.in/' target="_blank"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            <!-- <div class="port-meta">
-                                                <h4>BRANaDING DESIGN</h4>
-                                                <p>LOGO DESIGN</p>
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--=== Single Portfolio End ===-->
-                                <!--=== Single Portfolio Start ===-->
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="portfolio-single">
-                                        <div class="portfolio-thum">
-                                            <img src="default/img/SV-Wealth.png" alt="">
-                                        </div>
-                                        <div class="portfolio-hover text-center">
-                                            <div class="port-btn-hvr">
-                                                <a href="default/img/SV-Wealth.png" class="image-link"><i class="fa fa-search-plus"></i></a>
-                                                <a href='http://sv-wealth.impetusaisolutions.com/' target="_blank"><i class="fa fa-link"></i></a>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--=== Single Portfolio End ===-->
-                                <!--=== Single Portfolio Start ===-->
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="portfolio-single">
-                                        <div class="portfolio-thum">
-                                            <img src="default/img/GoldenKey.png" alt="">
-                                        </div>
-                                        <div class="portfolio-hover text-center">
-                                            <div class="port-btn-hvr">
-                                                <a href="default/img/GoldenKey.png" class="image-link"><i class="fa fa-search-plus"></i></a>
-                                                <a href='http://goldenkey-web.impetusaisolutions.com/' target="_blank"><i class="fa fa-link"></i></a>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--=== Single Portfolio    End ===-->
-                                <!--=== Single Portfolio Start ===-->
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="portfolio-single">
-                                        <div class="portfolio-thum">
-                                            <img src="default/img/LAWFIRM.png" alt="">
-                                        </div>
-                                        <div class="portfolio-hover text-center">
-                                            <div class="port-btn-hvr">
-                                                <a href="default/img/LAWFIRM.png" class="image-link"><i class="fa fa-search-plus"></i></a>
-                                                <a href= 'http://idharma.impetusaisolutions.com/' target="_blank"><i class="fa fa-link"></i></a>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--=== Single Portfolio End ===-->
-                                <!--=== Single Portfolio Start ===-->
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="portfolio-single">
-                                        <div class="portfolio-thum">
-                                            <img src="default/img/NirmalSareeHome.png" alt="">
-                                        </div>
-                                        <div class="portfolio-hover text-center">
-                                            <div class="port-btn-hvr">
-                                                <a href="default/img/NirmalSareeHome.png" class="image-link"><i class="fa fa-search-plus"></i></a>
-                                                <a href='https://nirmalsaree.impetusaisolutions.com/' target="_blank"><i class="fa fa-link"></i></a>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--=== Single Portfolio    End ===-->
-                                <!--=== Single Portfolio Start ===-->
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="portfolio-single">
-                                        <div class="portfolio-thum">
-                                            <img src="default/img/reditas.png" alt="">
-                                        </div>
-                                        <div class="portfolio-hover text-center">
-                                            <div class="port-btn-hvr">
-                                                <a href="default/img/reditas.png" class="image-link"><i class="fa fa-search-plus"></i></a>
-                                                <a href='https://reditas.in/' target="_blank"><i class="fa fa-link"></i></a>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="portfolio-single">
-                                        <div class="portfolio-thum">
-                                            <img src="default/img/avl.png" alt="">
-                                        </div>
-                                        <div class="portfolio-hover text-center">
-                                            <div class="port-btn-hvr">
-                                                <a href="default/img/avl.png" class="image-link"><i class="fa fa-search-plus"></i></a>
-                                                <a href='https://avlcs.com/' target="_blank"><i class="fa fa-link"></i></a>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="portfolio-single">
-                                        <div class="portfolio-thum">
-                                            <img src="default/img/Gemsyn.png" alt="">
-                                        </div>
-                                        <div class="portfolio-hover text-center">
-                                            <div class="port-btn-hvr">
-                                                <a href="default/img/Gemsyn.png" class="image-link"><i class="fa fa-search-plus"></i></a>
-                                                <a href='https://gemsyn.com/' target="_blank"><i class="fa fa-link"></i></a>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                    <div class="portfolio-single">
-                                        <div class="portfolio-thum">
-                                            <img src="default/img/sweethome.png" alt="">
-                                        </div>
-                                        <div class="portfolio-hover text-center">
-                                            <div class="port-btn-hvr">
-                                                <a href="default/img/sweethome.png" class="image-link"><i class="fa fa-search-plus"></i></a>
-                                                <a href='https://sweethome.net.in/' target="_blank"><i class="fa fa-link"></i></a>
-                                            </div>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--=== Single Portfolio End ===-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- <div class="row">
-                    <div class="col-md-12">
-                        <div class="portfolio-btn">
-                            <a href='portfolio.html'>Load More</a>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </div>
-
     </section>
-    <!--====== Portfolio Area End ======-->
 
-  
-    <!--====== Contact Area Start ======-->
-  
-    <!--====== Footer Area Start ======-->
-    <footer id="footer-area">
+    <section id="experience">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="footer-social-link">
-                        <ul class="footer-icons">
-                            <!-- <li><a href="#"><i class="fa fa-envelope"></i></a></li> -->
-                            <li><a href="https://www.instagram.com/urskaran_17/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-                            <li><a href="https://www.facebook.com/karan.maggu.1775" target="_blank"> <i class="fa fa-facebook"></i></a></li>
-                            <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
-                            <li><a href="https://www.linkedin.com/in/karan-m-13b24716b/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+            <div class="text-center animate-on-scroll">
+                <h2 class="section-heading">Work Experience</h2>
+                <p class="section-subheading">My professional journey so far.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item right animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>Web Designer</h3>
+                        <span class="company">ROYALWAYS TECHNOLOGIES Pvt.ltd </span>
+                        <span class="date">11/2023 - Present</span>
+                        <p>Designing and developing responsive websites for diverse clients, from real estate to manufacturing, ensuring strong branding and clean UI. </p>
+                        <span class="badge bg-primary">HTML</span>
+                        <span class="badge bg-primary">CSS</span>
+                        <span class="badge bg-primary">JavaScript</span>
+                        <span class="badge bg-primary">Bootstrap</span>
                     </div>
-                    <!-- <hr> -->
-                    <!-- <div class="copyright-area text-center">
-                        <p>karan &copy; <script>document.write(new Date().getFullYear());</script>. ALL RIGHTS RESERVED.</p>
-                    </div> -->
+                </div>
+
+                <div class="timeline-item left animate-on-scroll">
+                    <div class="timeline-content">
+                        <h3>Web Designer </h3>
+                        <span class="company">IMPETUS AI SOLUTIONS</span>
+                        <span class="date">10/2022 - 08/2023</span>
+                        <p>Worked on frontend development, coordinating workflows, leading code development, and cooperating with marketers to deliver front-end experiments.</p>
+                        <span class="badge bg-primary">HTML</span>
+                        <span class="badge bg-primary">CSS</span>
+                        <span class="badge bg-primary">Angular</span>
+                        <span class="badge bg-primary">Responsive Design</span>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="projects" class="bg-dark-secondary">
+        <div class="container">
+            <div class="text-center animate-on-scroll">
+                <h2 class="section-heading">Projects</h2>
+                <p class="section-subheading">A selection of my work across various industries. Hover over a card to flip.</p>
+            </div>
+
+            <h3 class="text-light mb-4 mt-4 animate-on-scroll">Flats and Buildings</h3>
+            <div class="row g-4 animate-on-scroll">
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>UMBERA GROUPS</h4>
+                                    <span>Real Estate</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>Umbera Groups</h5>
+                                <p>Designed and developed a responsive website for a major real estate group.</p>
+                                <a href="project-umbera-groups.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>UMBERA HOMES</h4>
+                                    <span>Real Estate</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>Umbera Homes</h5>
+                                <p>A dedicated portal for residential properties, focusing on user experience and lead generation.</p>
+                                <a href="project-umbera-homes.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>UMBERA GREENS</h4>
+                                    <span>Real Estate</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>Umbera Greens</h5>
+                                <p>Project site for a specific eco-friendly housing development.</p>
+                                <a href="project-umbera-greens.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>UMBERA MAJESTIC</h4>
+                                    <span>Real Estate</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>Umbera Majestic</h5>
+                                <p>Landing page and brochure site for a luxury apartment complex.</p>
+                                <a href="project-umbera-majestic.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>UMBERA ORCHARD</h4>
+                                    <span>Real Estate</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>Umbera Orchard</h5>
+                                <p>Website for a plotted development project, focusing on location and amenities.</p>
+                                <a href="project-umbera-orchard.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-light mb-4 mt-5 animate-on-scroll">Steel & Manufacturing Sector</h3>
+            <div class="row g-4 animate-on-scroll">
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>MADHAVKRGGROUP</h4>
+                                    <span>Steel & Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>MADHAVKRGGROUP</h5>
+                                <p>B2B corporate website ensuring strong branding and clean UI.</p>
+                                <a href="project-madhavkrggroup.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>FAILTD</h4>
+                                    <span>Steel & Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>FAILTD</h5>
+                                <p>Corporate website for an industrial manufacturing client.</p>
+                                <a href="project-failtd.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>KAYJAY FORGINGS</h4>
+                                    <span>Steel & Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>KAYJAY FORGINGS</h5>
+                                <p>Developed a site focusing on product specifications and company profile.</p>
+                                <a href="project-kayjay-forgings.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>PRIME STEEL</h4>
+                                    <span>Steel & Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>PRIME STEEL</h5>
+                                <p>Corporate identity and web presence for a steel distribution company.</p>
+                                <a href="project-prime-steel.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>BEHARILAL ENG.</h4>
+                                    <span>Steel & Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>BEHARILAL ENG.</h5>
+                                <p>Website design for an engineering firm, highlighting services and projects.</p>
+                                <a href="project-beharilal-eng.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>BHUSHAN STEEL</h4>
+                                    <span>Steel & Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>BHUSHAN STEEL</h5>
+                                <p>Corporate portal for a large-scale steel manufacturer.</p>
+                                <a href="project-bhushan-steel.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>RESILIENT AUTO COMP</h4>
+                                    <span>Steel & Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>RESILIENT AUTO COMP</h5>
+                                <p>Product-focused website for an automotive component manufacturer.</p>
+                                <a href="project-resilient-auto.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>AARTI STEELS</h4>
+                                    <span>Steel & Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>AARTI STEELS</h5>
+                                <p>Corporate website redesign for a leading steel company.</p>
+                                <a href="project-aarti-steels.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>VIMCO</h4>
+                                    <span>Steel & Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>VIMCO</h5>
+                                <p>Industrial products website with a focus on technical specifications.</p>
+                                <a href="project-vimco.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>TOOLMAN STEELS</h4>
+                                    <span>Steel & Manufacturing</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>TOOLMAN STEELS</h5>
+                                <p>B2B website for a specialized tool and steel supplier.</p>
+                                <a href="project-toolman-steels.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-light mb-4 mt-5 animate-on-scroll">Textile & Fabrics Industry</h3>
+            <div class="row g-4 animate-on-scroll">
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>ENVISION EXPORTS</h4>
+                                    <span>Textile & Fabrics</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>ENVISION EXPORTS</h5>
+                                <p>Designed with a strong focus on product catalogues, seamless browsing, and user-friendly navigation.</p>
+                                <a href="project-envision-exports.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>SWADESHI WOOLLEN MILLS</h4>
+                                    <span>Textile & Fabrics</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>SWADESHI WOOLLEN MILLS</h5>
+                                <p>Digital catalogue for a legacy woollen mill, focusing on product showcases and heritage.</p>
+                                <a href="project-swadeshi-woollen.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>GIO EXPORTS</h4>
+                                    <span>Textile & Fabrics</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>GIO EXPORTS</h5>
+                                <p>Export-oriented website with multi-language support and easy-to-navigate product galleries.</p>
+                                <a href="project-gio-exports.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>SKKNITFAB</h4>
+                                    <span>Textile & Fabrics</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>SKKNITFAB</h5>
+                                <p>A B2B portal for a knitwear fabric manufacturer, focusing on seamless browsing for buyers.</p>
+                                <a href="project-skknitfab.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-light mb-4 mt-5 animate-on-scroll">Financial & Investment Industry</h3>
+            <div class="row g-4 animate-on-scroll">
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>GENIXPAY</h4>
+                                    <span>Fintech & Investment</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>GENIXPAY</h5>
+                                <p>Fintech site with a strong focus on transparent financial information and user-friendly navigation.</p>
+                                <a href="project-genixpay.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>ESTATEQOR</h4>
+                                    <span>Fintech & Investment</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>ESTATEQOR</h5>
+                                <p>Focus on real estate and alternative investment solutions to help investors make informed decisions.</p>
+                                <a href="project-estateqor.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>REDITAS</h4>
+                                    <span>Fintech & Investment</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>REDITAS</h5>
+                                <p>Investment platform focused on transparent data and seamless browsing for investors.</p>
+                                <a href="project-reditas.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 animate-child">
+                    <div class="project-card-container">
+                        <div class="project-card">
+                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
+                                <div class="project-title">
+                                    <h4>AVLCS</h4>
+                                    <span>Fintech & Investment</span>
+                                </div>
+                            </div>
+                            <div class="project-card-back">
+                                <h5>AVLCS</h5>
+                                <p>Financial solutions website aimed at helping investors make informed decisions.</p>
+                                <a href="project-avlcs.html" target="_blank" class="btn btn-outline-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+            <div class="text-center animate-on-scroll">
+                <h2 class="section-heading">Get In Touch</h2>
+                <p class="section-subheading">I'm currently available for freelance work and new opportunities.</p>
+            </div>
+
+            <div class="row text-center animate-on-scroll" style="transition-delay: 0.2s;">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="contact-info">
+                        <i class="fa-solid fa-envelope contact-icon"></i>
+                        <h4>Email</h4>
+                        <a href="mailto:karanmaggo1997@gmail.com">karanmaggo1997@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-info">
+                        <i class="fa-solid fa-phone contact-icon"></i>
+                        <h4>Phone</h4>
+                        <a href="tel:8968731373">8968731373</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5 pt-5 animate-on-scroll" style="transition-delay: 0.4s;">
+                <h4 class="mb-4">Follow Me</h4>
+                <div class="social-icons">
+                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" target="_blank" aria-label="Upwork"><i class="fa-brands fa-upwork"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Karan Maggo. All Rights Reserved. Designed with <i class="fa-solid fa-heart" style="color: var(--primary-color);"></i>.</p>
         </div>
     </footer>
-    <!--====== Footer Area End ======-->
 
-    <!--====== Back To Top Section Start ======-->
-    <div id="scroll" data-toggle="tooltip" data-placement="top" title="Back To Top">
-        <a href="#"><i class="fa fa-angle-up"></i></a>
-    </div>
-    <!--====== Back To Top Section End ======-->
 
-    <!--==================================================================-->
-    <script type="text/javascript" src="default/js/jquery-3.2.1.min.js"></script>
-    <!--=== All Plugin ===-->
-    <script type="text/javascript" src="default/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="default/js/plugins/parallax.min.js"></script>
-    <script type="text/javascript" src="default/js/plugins/magnific-popup.min.js"></script>
-    <script type="text/javascript" src="default/js/plugins/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="default/js/plugins/wow.min.js"></script>
-    <script type="text/javascript" src="default/js/plugins/appear.js"></script>
-    <script type="text/javascript" src="default/js/plugins/isotope.min.js"></script>
-    <script type="text/javascript" src="default/js/plugins/jqBootstrapValidation.js"></script>
-    <script type="text/javascript" src="default/js/plugins/contact_me.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="default/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // --- Intersection Observer for On-Scroll Animations ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            // Observe all elements with the class 'animate-on-scroll'
+            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+
+
+            // --- Bootstrap ScrollSpy Activation ---
+            // This is handled by data-bs-spy="scroll" on the body tag,
+            // but we can add this to ensure it initializes properly.
+            var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+                target: '#mainNavbar',
+                offset: 80
+            });
+
+            // --- Navbar shrink on scroll (Optional but nice effect) ---
+            // Let's add this for a more dynamic feel
+            const navbar = document.getElementById('mainNavbar');
+            if (navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navbar.style.backgroundColor = 'rgba(26, 26, 26, 1)'; // Solid color on scroll
+                        navbar.style.padding = '8px 0';
+                    } else {
+                        navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.85)'; // Semi-transparent at top
+                        navbar.style.padding = '16px 0';
+                    }
+                });
+                // Adjust padding transition
+                navbar.style.transition = 'background-color 0.3s ease, padding 0.3s ease';
+                navbar.style.padding = '16px 0';
+            }
+
+        });
+    </script>
 </body>
-
-
-<!-- Mirrored from karan.netlify.app/demo/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Sep 2023 06:20:52 GMT -->
 </html>
