@@ -1031,6 +1031,66 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+
+
+
+
+   <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // --- Intersection Observer for On-Scroll Animations ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            // Observe all elements with the class 'animate-on-scroll'
+            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+
+
+            // --- Bootstrap ScrollSpy Activation ---
+            // This is handled by data-bs-spy="scroll" on the body tag,
+            // but we can add this to ensure it initializes properly.
+            var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+                target: '#mainNavbar',
+                offset: 80
+            });
+
+            // --- Navbar shrink on scroll (Optional but nice effect) ---
+            // Let's add this for a more dynamic feel
+            const navbar = document.getElementById('mainNavbar');
+            if (navbar) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        navbar.style.backgroundColor = 'rgba(26, 26, 26, 1)'; // Solid color on scroll
+                        navbar.style.padding = '8px 0';
+                    } else {
+                        navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.85)'; // Semi-transparent at top
+                        navbar.style.padding = '16px 0';
+                    }
+                });
+                // Adjust padding transition
+                navbar.style.transition = 'background-color 0.3s ease, padding 0.3s ease';
+                navbar.style.padding = '16px 0';
+            }
+
+        });
+    </script>
+
+
+
+
+
+
+
   <script>
         document.addEventListener('DOMContentLoaded', () => {
 
