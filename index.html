@@ -6,17 +6,16 @@
     <title>Karan Maggo - Web Designer Portfolio</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <style>
         /*
         ========================================
-        CUSTOM STYLES
+        PORTFOLIO: CUSTOM STYLES
         ========================================
         */
 
@@ -38,6 +37,11 @@
             background-color: var(--dark-color);
             color: var(--light-color);
             line-height: 1.7;
+        }
+
+        /* This global class is used by the Gallery JS */
+        body.dg-scroll-lock {
+            overflow: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -65,6 +69,7 @@
         section {
             padding: 80px 0;
             overflow-x: hidden; /* Prevents horizontal scroll from animations */
+            position: relative; /* Good for child absolute positioning */
         }
 
         .bg-dark-secondary {
@@ -73,7 +78,7 @@
 
         /*
         ========================================
-        Navbar
+        PORTFOLIO: Navbar
         ========================================
         */
         .navbar {
@@ -81,7 +86,8 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid #333;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            padding: 16px 0; /* Added for shrink effect */
         }
 
         .navbar-brand {
@@ -143,7 +149,7 @@
 
         /*
         ========================================
-        Home (Hero) Section - Parallax
+        PORTFOLIO: Home (Hero) Section - Parallax
         ========================================
         */
         #home {
@@ -200,7 +206,7 @@
 
         /*
         ========================================
-        About Section
+        PORTFOLIO: About Section
         ========================================
         */
         #about img {
@@ -237,7 +243,7 @@
 
         /*
         ========================================
-        Skills Section
+        PORTFOLIO: Skills Section
         ========================================
         */
         .skill-item {
@@ -247,6 +253,7 @@
             border-radius: 10px;
             transition: all 0.3s ease-out;
             border: 1px solid #333;
+            height: 100%; /* Added for equal height */
         }
 
         .skill-item:hover {
@@ -279,7 +286,7 @@
 
         /*
         ========================================
-        Experience (Timeline)
+        PORTFOLIO: Experience (Timeline)
         ========================================
         */
         .timeline {
@@ -387,94 +394,107 @@
 
         /*
         ========================================
-        Projects Section - Flip Card
+        PORTFOLIO: Projects Section (Aesthetic Hover)
         ========================================
         */
-        .project-card-container {
-            perspective: 1000px;
-            margin-bottom: 30px;
-        }
-        .project-card {
-            width: 100%;
-            height: 300px;
-            position: relative;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-        }
-        .project-card-container:hover .project-card {
-            transform: rotateY(180deg);
-        }
-        .project-card-front,
-        .project-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: var(--secondary-dark);
-        }
-        .project-card-front {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #444;
-        }
-        /* Placeholder styling for front */
-        .project-card-front {
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-        }
-        .project-card-front::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8));
-            z-index: 1;
-        }
-        .project-card-front .project-title {
-            position: relative;
-            z-index: 2;
-            padding: 20px;
-        }
-        .project-card-front .project-title h4 {
-            font-size: 1.5rem;
-        }
-        .project-card-front .project-title span {
-            font-size: 1rem;
-            color: var(--primary-color);
-            font-weight: 300;
+        .text-gradient {
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .project-card-back {
-            transform: rotateY(180deg);
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border: 1px solid var(--primary-color);
-            z-index: 2; /* <<<--- FIX ADDED HERE */
+        /* Floating background blobs */
+        #projects .floating-blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(0,255,255,0.1), transparent);
+            filter: blur(60px);
+            z-index: 0;
+            animation: float 12s infinite ease-in-out alternate;
         }
-        .project-card-back h5 {
-            color: var(--primary-color);
+        #projects .blob1 { top: -80px; left: -100px; }
+        #projects .blob2 { bottom: -100px; right: -120px; background: radial-gradient(circle at 70% 70%, rgba(255,0,150,0.1), transparent); }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-40px) scale(1.1); }
         }
-        .project-card-back p {
-            font-size: 0.95rem;
-            color: #ccc;
-            margin-bottom: 1rem;
+
+        /* Project Card Styling */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            height: 340px;
+            cursor: pointer;
+            background: #222;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
-        .project-card-back .btn {
-            margin-top: auto;
-            position: relative; /* <<<--- FIX ADDED HERE */
-            z-index: 3; /* <<<--- FIX ADDED HERE */
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .project-img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 1s ease;
+        }
+        .project-card:hover .project-img {
+            transform: scale(1.15) rotate(2deg);
+            filter: brightness(0.7);
+        }
+
+        /* Overlay content */
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.85));
+            transform: translateY(100%);
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+
+        .project-overlay h4 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .project-overlay p {
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+        .project-overlay .btn {
+            margin-top: 10px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .project-overlay .btn:hover {
+            background: #00d2ff;
+            color: #000;
+            border-color: #00d2ff;
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 767px) {
+            .project-card { height: 280px; }
+            .project-overlay { padding: 20px; }
+            #projects .floating-blob { display: none; }
         }
 
         /*
         ========================================
-        Contact Section
+        PORTFOLIO: Contact Section
         ========================================
         */
         .contact-icon {
@@ -504,7 +524,7 @@
 
         /*
         ========================================
-        Footer
+        PORTFOLIO: Footer
         ========================================
         */
         footer {
@@ -516,7 +536,7 @@
 
         /*
         ========================================
-        On-Scroll Animations
+        PORTFOLIO: On-Scroll Animations
         ========================================
         */
         .animate-on-scroll {
@@ -554,8 +574,222 @@
         .animate-child:nth-child(9) { animation-delay: 0.9s; }
         .animate-child:nth-child(10) { animation-delay: 1.0s; }
 
+
+        /*
+        ========================================
+        GALLERY: STYLES (SCOPED TO #gallery)
+        ========================================
+        */
+
+        /* This is the new section wrapper for the gallery */
+        #gallery {
+            padding: 0; /* Override section padding */
+            min-height: 100vh; /* Make it a full-height section */
+            position: relative;
+            background-color: #222222;
+        }
+
+        #gallery .sphere-root {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full height of its parent section */
+            --radius: 520px;
+            --viewer-pad: 72px;
+            --circ: calc(var(--radius) * 3.14);
+            --rot-y: calc((360deg / var(--segments-x)) / 2);
+            --rot-x: calc((360deg / var(--segments-y)) / 2);
+            --item-width: calc(var(--circ) / var(--segments-x));
+            --item-height: calc(var(--circ) / var(--segments-y));
+        }
+
+        #gallery .sphere-root * {
+            box-sizing: border-box;
+        }
+
+        #gallery .sphere,
+        #gallery .item,
+        #gallery .item__image {
+            transform-style: preserve-3d;
+        }
+
+        #gallery main.sphere-main {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none;
+            background: transparent;
+        }
+
+        #gallery .stage {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            place-items: center;
+            perspective: calc(var(--radius) * 2);
+            perspective-origin: 50% 50%;
+            contain: layout paint size;
+        }
+
+        #gallery .sphere {
+            transform: translateZ(calc(var(--radius) * -1));
+            will-change: transform;
+        }
+
+        #gallery .overlay,
+        #gallery .overlay--blur {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        #gallery .overlay {
+            background-image: radial-gradient(rgba(235, 235, 235, 0) 65%, var(--overlay-blur-color, #222222) 100%);
+        }
+
+        #gallery .overlay--blur {
+            -webkit-mask-image: radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, #222222) 90%);
+            mask-image: radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, #222222) 90%);
+            backdrop-filter: blur(3px);
+        }
+
+        #gallery .item {
+            width: calc(var(--item-width) * var(--item-size-x));
+            height: calc(var(--item-height) * var(--item-size-y));
+            position: absolute;
+            top: -999px;
+            bottom: -999px;
+            left: -999px;
+            right: -999px;
+            margin: auto;
+            transform-origin: 50% 50%;
+            backface-visibility: hidden;
+            transition: transform 300ms;
+            transform: rotateY(calc(var(--rot-y) * (var(--offset-x) + ((var(--item-size-x) - 1) / 2)) + var(--rot-y-delta, 0deg)))
+                rotateX(calc(var(--rot-x) * (var(--offset-y) - ((var(--item-size-y) - 1) / 2)) + var(--rot-x-delta, 0deg)))
+                translateZ(var(--radius));
+        }
+
+        #gallery .item__image {
+            position: absolute;
+            display: block;
+            inset: 10px;
+            border-radius: var(--tile-radius, 12px);
+            background: transparent;
+            overflow: hidden;
+            backface-visibility: hidden;
+            transition: transform 300ms;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            pointer-events: auto;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        #gallery .item__image:focus {
+            outline: none;
+        }
+
+        #gallery .item__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+            backface-visibility: hidden;
+            filter: var(--image-filter, none);
+        }
+
+        #gallery .viewer {
+            position: absolute;
+            inset: 0;
+            z-index: 20;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--viewer-pad);
+        }
+
+        #gallery .viewer .frame {
+            height: 100%;
+            aspect-ratio: 1;
+            border-radius: var(--enlarge-radius, 32px);
+            display: flex;
+        }
+
+        @media (max-aspect-ratio: 1/1) {
+            #gallery .viewer .frame {
+                height: auto;
+                width: 100%;
+            }
+        }
+
+        #gallery .viewer .scrim {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 500ms ease;
+            backdrop-filter: blur(3px);
+        }
+
+        #gallery .sphere-root[data-enlarging='true'] .viewer .scrim {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        #gallery .viewer .enlarge {
+            position: absolute;
+            z-index: 30;
+            border-radius: var(--enlarge-radius, 32px);
+            overflow: hidden;
+            transition:
+                transform 500ms ease,
+                opacity 500ms ease;
+            transform-origin: top left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        #gallery .viewer .enlarge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: var(--image-filter, none);
+        }
+
+        #gallery .sphere-root .enlarge-closing img {
+            filter: var(--image-filter, none);
+        }
+
+        #gallery .edge-fade {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 120px;
+            z-index: 5;
+            pointer-events: none;
+            background: linear-gradient(to bottom, transparent, var(--overlay-blur-color, #222222));
+        }
+
+        #gallery .edge-fade--top {
+            top: 0;
+            transform: rotate(180deg);
+        }
+
+        #gallery .edge-fade--bottom {
+            bottom: 0;
+        }
     </style>
 </head>
+
 <body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="80">
 
     <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -582,6 +816,9 @@
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
@@ -592,7 +829,7 @@
     <section id="home">
         <div class="container text-center">
             <h1 class="display-3 animate-on-scroll">Karan Maggo</h1>
-            <p class="lead animate-on-scroll" style="transition-delay: 0.2s;">Web Designer &amp; Frontend Developer</p>
+            <p class="lead animate-on-scroll" style="transition-delay: 0.2s;">Web Designer</p>
         </div>
         <a href="#about" class="scroll-down">
             <i class="fa-solid fa-chevron-down"></i>
@@ -633,7 +870,7 @@
                 <p class="section-subheading">My technical toolbox for building modern web experiences.</p>
             </div>
             
-            <div class="row g-4 animate-on-scroll">
+            <div class="row g-4 animate-on-scroll justify-content-center">
                 <div class="col-md-4 col-lg-3 animate-child">
                     <div class="skill-item">
                         <i class="fa-brands fa-html5"></i>
@@ -672,7 +909,7 @@
                 </div>
                 <div class="col-md-4 col-lg-3 animate-child">
                     <div class="skill-item">
-                        <i class="fa-brands fa-adobe"></i>
+                        <img src="ps.png" style="width: 60px; height: 60px; object-fit: contain; margin-bottom: 0.6rem;" alt="Photoshop">
                         <h4>Adobe Photoshop</h4>
                     </div>
                 </div>
@@ -723,422 +960,40 @@
         </div>
     </section>
 
-    <section id="projects" class="bg-dark-secondary">
+    <section id="projects" class="bg-dark-secondary py-5 position-relative overflow-hidden">
         <div class="container">
-            <div class="text-center animate-on-scroll">
-                <h2 class="section-heading">Projects</h2>
-                <p class="section-subheading">A selection of my work across various industries. Hover over a card to flip.</p>
+            <div class="text-center mb-5 animate-on-scroll">
+                <h2 class="section-heading fw-bold text-gradient">Projects</h2>
+                <p class="section-subheading text-secondary">
+                    A selection of my work across various industries.
+                </p>
             </div>
 
-            <h3 class="text-light mb-4 mt-4 animate-on-scroll">Flats and Buildings</h3>
-            <div class="row g-4 animate-on-scroll">
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>UMBERA GROUPS</h4>
-                                    <span>Real Estate</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>Umbera Groups</h5>
-                                <p>Designed and developed a responsive website for a major real estate group.</p>
-                                <a href="project-umbera-groups.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>UMBERA HOMES</h4>
-                                    <span>Real Estate</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>Umbera Homes</h5>
-                                <p>A dedicated portal for residential properties, focusing on user experience and lead generation.</p>
-                                <a href="project-umbera-homes.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>UMBERA GREENS</h4>
-                                    <span>Real Estate</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>Umbera Greens</h5>
-                                <p>Project site for a specific eco-friendly housing development.</p>
-                                <a href="project-umbera-greens.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>UMBERA MAJESTIC</h4>
-                                    <span>Real Estate</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>Umbera Majestic</h5>
-                                <p>Landing page and brochure site for a luxury apartment complex.</p>
-                                <a href="project-umbera-majestic.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>UMBERA ORCHARD</h4>
-                                    <span>Real Estate</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>Umbera Orchard</h5>
-                                <p>Website for a plotted development project, focusing on location and amenities.</p>
-                                <a href="project-umbera-orchard.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <h3 class="text-light mb-4 mt-5 animate-on-scroll">Steel & Manufacturing Sector</h3>
-            <div class="row g-4 animate-on-scroll">
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>MADHAVKRGGROUP</h4>
-                                    <span>Steel & Manufacturing</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>MADHAVKRGGROUP</h5>
-                                <p>B2B corporate website ensuring strong branding and clean UI.</p>
-                                <a href="project-madhavkrggroup.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>FAILTD</h4>
-                                    <span>Steel & Manufacturing</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>FAILTD</h5>
-                                <p>Corporate website for an industrial manufacturing client.</p>
-                                <a href="project-failtd.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>KAYJAY FORGINGS</h4>
-                                    <span>Steel & Manufacturing</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>KAYJAY FORGINGS</h5>
-                                <p>Developed a site focusing on product specifications and company profile.</p>
-                                <a href="project-kayjay-forgings.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>PRIME STEEL</h4>
-                                    <span>Steel & Manufacturing</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>PRIME STEEL</h5>
-                                <p>Corporate identity and web presence for a steel distribution company.</p>
-                                <a href="project-prime-steel.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>BEHARILAL ENG.</h4>
-                                    <span>Steel & Manufacturing</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>BEHARILAL ENG.</h5>
-                                <p>Website design for an engineering firm, highlighting services and projects.</p>
-                                <a href="project-beharilal-eng.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>BHUSHAN STEEL</h4>
-                                    <span>Steel & Manufacturing</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>BHUSHAN STEEL</h5>
-                                <p>Corporate portal for a large-scale steel manufacturer.</p>
-                                <a href="project-bhushan-steel.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>RESILIENT AUTO COMP</h4>
-                                    <span>Steel & Manufacturing</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>RESILIENT AUTO COMP</h5>
-                                <p>Product-focused website for an automotive component manufacturer.</p>
-                                <a href="project-resilient-auto.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>AARTI STEELS</h4>
-                                    <span>Steel & Manufacturing</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>AARTI STEELS</h5>
-                                <p>Corporate website redesign for a leading steel company.</p>
-                                <a href="project-aarti-steels.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>VIMCO</h4>
-                                    <span>Steel & Manufacturing</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>VIMCO</h5>
-                                <p>Industrial products website with a focus on technical specifications.</p>
-                                <a href="project-vimco.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1581093582103-8103c8b6d0e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>TOOLMAN STEELS</h4>
-                                    <span>Steel & Manufacturing</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>TOOLMAN STEELS</h5>
-                                <p>B2B website for a specialized tool and steel supplier.</p>
-                                <a href="project-toolman-steels.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="floating-blob blob1"></div>
+            <div class="floating-blob blob2"></div>
 
-            <h3 class="text-light mb-4 mt-5 animate-on-scroll">Textile & Fabrics Industry</h3>
-            <div class="row g-4 animate-on-scroll">
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>ENVISION EXPORTS</h4>
-                                    <span>Textile & Fabrics</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>ENVISION EXPORTS</h5>
-                                <p>Designed with a strong focus on product catalogues, seamless browsing, and user-friendly navigation.</p>
-                                <a href="project-envision-exports.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>SWADESHI WOOLLEN MILLS</h4>
-                                    <span>Textile & Fabrics</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>SWADESHI WOOLLEN MILLS</h5>
-                                <p>Digital catalogue for a legacy woollen mill, focusing on product showcases and heritage.</p>
-                                <a href="project-swadeshi-woollen.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>GIO EXPORTS</h4>
-                                    <span>Textile & Fabrics</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>GIO EXPORTS</h5>
-                                <p>Export-oriented website with multi-language support and easy-to-navigate product galleries.</p>
-                                <a href="project-gio-exports.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>SKKNITFAB</h4>
-                                    <span>Textile & Fabrics</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>SKKNITFAB</h5>
-                                <p>A B2B portal for a knitwear fabric manufacturer, focusing on seamless browsing for buyers.</p>
-                                <a href="project-skknitfab.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="text-light mb-4 mt-5 animate-on-scroll">Financial & Investment Industry</h3>
-            <div class="row g-4 animate-on-scroll">
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>GENIXPAY</h4>
-                                    <span>Fintech & Investment</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>GENIXPAY</h5>
-                                <p>Fintech site with a strong focus on transparent financial information and user-friendly navigation.</p>
-                                <a href="project-genixpay.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>ESTATEQOR</h4>
-                                    <span>Fintech & Investment</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>ESTATEQOR</h5>
-                                <p>Focus on real estate and alternative investment solutions to help investors make informed decisions.</p>
-                                <a href="project-estateqor.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>REDITAS</h4>
-                                    <span>Fintech & Investment</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>REDITAS</h5>
-                                <p>Investment platform focused on transparent data and seamless browsing for investors.</p>
-                                <a href="project-reditas.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate-child">
-                    <div class="project-card-container">
-                        <div class="project-card">
-                            <div class="project-card-front" style="background-image: url('https://images.unsplash.com/photo-1624996379697-f01d168b1a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');">
-                                <div class="project-title">
-                                    <h4>AVLCS</h4>
-                                    <span>Fintech & Investment</span>
-                                </div>
-                            </div>
-                            <div class="project-card-back">
-                                <h5>AVLCS</h5>
-                                <p>Financial solutions website aimed at helping investors make informed decisions.</p>
-                                <a href="project-avlcs.html" target="_blank" class="btn btn-outline-primary">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+          
         </div>
     </section>
+    
+    <section id="gallery">
+        <div class="sphere-root">
+            <main class="sphere-main">
+                <div class="stage">
+                    <div class="sphere"></div>
+                </div>
+                <div class="overlay"></div>
+                <div class="overlay overlay--blur"></div>
+                <div class="edge-fade edge-fade--top"></div>
+                <div class="edge-fade edge-fade--bottom"></div>
+                <div class="viewer">
+                    <div class="scrim"></div>
+                    <div class="frame"></div>
+                </div>
+            </main>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="container">
             <div class="text-center animate-on-scroll">
@@ -1150,85 +1005,686 @@
                 <div class="col-md-6 mb-4 mb-md-0">
                     <div class="contact-info">
                         <i class="fa-solid fa-envelope contact-icon"></i>
-                        <h4>Email</h4>
-                        <a href="mailto:karanmaggo1997@gmail.com">karanmaggo1997@gmail.com</a>
+                        <div> <a href="mailto:karanmaggo1997@gmail.com">karanmaggo1997@gmail.com</a></div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="contact-info">
                         <i class="fa-solid fa-phone contact-icon"></i>
-                        <h4>Phone</h4>
-                        <a href="tel:8968731373">8968731373</a>
+                        <div> <a href="tel:8968731373">8968731373</a></div>
                     </div>
                 </div>
             </div>
-
-            <div class="text-center mt-5 pt-5 animate-on-scroll" style="transition-delay: 0.4s;">
-                <h4 class="mb-4">Follow Me</h4>
-                <div class="social-icons">
-                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" target="_blank" aria-label="Upwork"><i class="fa-brands fa-upwork"></i></a>
-                </div>
-            </div>
+            
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Karan Maggo. All Rights Reserved. Designed with <i class="fa-solid fa-heart" style="color: var(--primary-color);"></i>.</p>
+            <div class="col-12 text-center">
+                <p style="color:#6c6c6c; margin: 0;">&copy; 2025 Karan Maggo. All Rights Reserved. Designed with <i class="fa-solid fa-heart" style="color: var(--primary-color);"></i>.</p>
+            </div>
         </div>
     </footer>
 
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
+  <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Constants (from React props & defaults) ---
             
-            // --- Intersection Observer for On-Scroll Animations ---
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
+            // [CHANGE 1: Add a 'href' property to each image object. This is the link that will open.]
+            const DEFAULT_IMAGES = [
+                { src: 'https://images.unsplash.com/photo-1755331039789-7e5680e26e8f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Abstract art', href: 'https://example.com/project-1' },
+                { src: 'https://images.unsplash.com/photo-1755569309049-98410b94f66d?q=80&w=772&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Modern sculpture', href: 'https://example.com/project-2' },
+                { src: 'https://images.unsplash.com/photo-1755497595318-7e5e3523854f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Digital artwork', href: 'https://example.com/project-3' },
+                { src: 'https://images.unsplash.com/photo-1755353985163-c2a0fe5ac3d8?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Contemporary art', href: 'https://example.com/project-4' },
+                { src: 'https://images.unsplash.com/photo-1745965976680-d00be7dc0377?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Geometric pattern', href: 'https://example.com/project-5' },
+                { src: 'https://images.unsplash.com/photo-1752588975228-21f44630bb3c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Textured surface', href: 'https://example.com/project-6' },
+                { src: 'https://pbs.twimg.com/media/Gyla7NnXMAAXSo_?format=jpg&name=large', alt: 'Social media image', href: 'https://example.com/project-7' }
+            ];
+
+            const OPTIONS = {
+                images: DEFAULT_IMAGES,
+                fit: 0.5,
+                fitBasis: 'auto',
+                minRadius: 600,
+                maxRadius: Infinity,
+                padFactor: 0.25,
+                overlayBlurColor: '#060010',
+                maxVerticalRotationDeg: 5,
+                dragSensitivity: 20,
+                enlargeTransitionMs: 300,
+                segments: 35,
+                dragDampening: 2,
+                openedImageWidth: '250px',
+                openedImageHeight: '350px',
+                imageBorderRadius: '30px',
+                openedImageBorderRadius: '30px',
+                grayscale: true
+            };
+
+            // --- DOM Element References (replaces useRef) ---
+            const rootEl = document.querySelector('.sphere-root');
+            const mainEl = document.querySelector('.sphere-main');
+            const sphereEl = document.querySelector('.sphere');
+            const frameEl = document.querySelector('.frame');
+            const viewerEl = document.querySelector('.viewer');
+            const scrimEl = document.querySelector('.scrim');
+
+            // --- State Variables (replaces useRef) ---
+            let rotation = { x: 0, y: 0 };
+            let startRot = { x: 0, y: 0 };
+            let startPos = null;
+            let dragging = false;
+            let moved = false;
+            let inertiaRAF = null;
+            let opening = false;
+            let openStartedAt = 0;
+            let lastDragEndAt = 0;
+            let scrollLocked = false;
+            let focusedEl = null;
+            let originalTilePosition = null;
+            let lockedRadius = null;
+            
+            // Gesture state
+            let lastMoveTime = 0;
+            let lastMovePos = { x: 0, y: 0 };
+            let lastVelocity = { x: 0, y: 0 };
+
+            // --- Helper Functions (copied from React) ---
+            const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+            const normalizeAngle = d => ((d % 360) + 360) % 360;
+            const wrapAngleSigned = deg => {
+                const a = (((deg + 180) % 360) + 360) % 360;
+                return a - 180;
+            };
+            const getDataNumber = (el, name, fallback) => {
+                const attr = el.dataset[name] ?? el.getAttribute(`data-${name}`);
+                const n = attr == null ? NaN : parseFloat(attr);
+                return Number.isFinite(n) ? n : fallback;
+            };
+
+            function buildItems(pool, seg) {
+                const xCols = Array.from({ length: seg }, (_, i) => -37 + i * 2);
+                const evenYs = [-4, -2, 0, 2, 4];
+                const oddYs = [-3, -1, 1, 3, 5];
+
+                const coords = xCols.flatMap((x, c) => {
+                    const ys = c % 2 === 0 ? evenYs : oddYs;
+                    return ys.map(y => ({ x, y, sizeX: 2, sizeY: 2 }));
                 });
-            }, {
-                threshold: 0.1 // Trigger when 10% of the element is visible
-            });
 
-            // Observe all elements with the class 'animate-on-scroll'
-            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-            elementsToAnimate.forEach(el => {
-                observer.observe(el);
-            });
+                const totalSlots = coords.length;
+                if (pool.length === 0) {
+                    return coords.map(c => ({ ...c, src: '', alt: '', href: '#' }));
+                }
+                if (pool.length > totalSlots) {
+                    console.warn(
+                        `[DomeGallery] Provided image count (${pool.length}) exceeds available tiles (${totalSlots}). Some images will not be shown.`
+                    );
+                }
 
-
-            // --- Bootstrap ScrollSpy Activation ---
-            // This is handled by data-bs-spy="scroll" on the body tag,
-            // but we can add this to ensure it initializes properly.
-            var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-                target: '#mainNavbar',
-                offset: 80
-            });
-
-            // --- Navbar shrink on scroll (Optional but nice effect) ---
-            // Let's add this for a more dynamic feel
-            const navbar = document.getElementById('mainNavbar');
-            if (navbar) {
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 50) {
-                        navbar.style.backgroundColor = 'rgba(26, 26, 26, 1)'; // Solid color on scroll
-                        navbar.style.padding = '8px 0';
-                    } else {
-                        navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.85)'; // Semi-transparent at top
-                        navbar.style.padding = '16px 0';
+                const normalizedImages = pool.map(image => {
+                    if (typeof image === 'string') {
+                        return { src: image, alt: '', href: '#' }; // [CHANGE 2a: Add default href]
                     }
+                    // [CHANGE 2b: Read href from object, provide default]
+                    return { src: image.src || '', alt: image.alt || '', href: image.href || '#' }; 
                 });
-                // Adjust padding transition
-                navbar.style.transition = 'background-color 0.3s ease, padding 0.3s ease';
-                navbar.style.padding = '16px 0';
+
+                const usedImages = Array.from({ length: totalSlots }, (_, i) => normalizedImages[i % normalizedImages.length]);
+
+                for (let i = 1; i < usedImages.length; i++) {
+                    if (usedImages[i].src === usedImages[i - 1].src) {
+                        for (let j = i + 1; j < usedImages.length; j++) {
+                            if (usedImages[j].src !== usedImages[i].src) {
+                                const tmp = usedImages[i];
+                                usedImages[i] = usedImages[j];
+                                usedImages[j] = tmp;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                return coords.map((c, i) => ({
+                    ...c,
+                    src: usedImages[i].src,
+                    alt: usedImages[i].alt,
+                    href: usedImages[i].href // [CHANGE 2c: Pass href to the final item list]
+                }));
             }
+
+            function computeItemBaseRotation(offsetX, offsetY, sizeX, sizeY, segments) {
+                const unit = 360 / segments / 2;
+                const rotateY = unit * (offsetX + (sizeX - 1) / 2);
+                const rotateX = unit * (offsetY - (sizeY - 1) / 2);
+                return { rotateX, rotateY };
+            }
+
+            // --- Core Logic Functions (from React component) ---
+
+            const applyTransform = (xDeg, yDeg) => {
+                if (sphereEl) {
+                    sphereEl.style.transform = `translateZ(calc(var(--radius) * -1)) rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
+                }
+            };
+
+            const lockScroll = () => {
+                if (scrollLocked) return;
+                scrollLocked = true;
+                document.body.classList.add('dg-scroll-lock');
+            };
+
+            const unlockScroll = () => {
+                if (!scrollLocked) return;
+                if (rootEl?.getAttribute('data-enlarging') === 'true') return;
+                scrollLocked = false;
+                document.body.classList.remove('dg-scroll-lock');
+            };
+
+            const stopInertia = () => {
+                if (inertiaRAF) {
+                    cancelAnimationFrame(inertiaRAF);
+                    inertiaRAF = null;
+                }
+            };
+
+            const startInertia = (vx, vy) => {
+                const MAX_V = 1.4;
+                let vX = clamp(vx, -MAX_V, MAX_V) * 80;
+                let vY = clamp(vy, -MAX_V, MAX_V) * 80;
+                let frames = 0;
+                const d = clamp(OPTIONS.dragDampening ?? 0.6, 0, 1);
+                const frictionMul = 0.94 + 0.055 * d;
+                const stopThreshold = 0.015 - 0.01 * d;
+                const maxFrames = Math.round(90 + 270 * d);
+                const step = () => {
+                    vX *= frictionMul;
+                    vY *= frictionMul;
+                    if (Math.abs(vX) < stopThreshold && Math.abs(vY) < stopThreshold) {
+                        inertiaRAF = null;
+                        return;
+                    }
+                    if (++frames > maxFrames) {
+                        inertiaRAF = null;
+                        return;
+                    }
+                    const nextX = clamp(rotation.x - vY / 200, -OPTIONS.maxVerticalRotationDeg, OPTIONS.maxVerticalRotationDeg);
+                    const nextY = wrapAngleSigned(rotation.y + vX / 200);
+                    rotation = { x: nextX, y: nextY };
+                    applyTransform(nextX, nextY);
+                    inertiaRAF = requestAnimationFrame(step);
+                };
+                stopInertia();
+                inertiaRAF = requestAnimationFrame(step);
+            };
+
+            // This function is no longer called by the click, but is left here
+            // in case you want to restore the enlarge behavior later.
+            const openItemFromElement = (el) => {
+                if (opening) return;
+                opening = true;
+                openStartedAt = performance.now();
+                lockScroll();
+                
+                const parent = el.parentElement;
+                focusedEl = el;
+                el.setAttribute('data-focused', 'true');
+                
+                const offsetX = getDataNumber(parent, 'offsetX', 0);
+                const offsetY = getDataNumber(parent, 'offsetY', 0);
+                const sizeX = getDataNumber(parent, 'sizeX', 2);
+                const sizeY = getDataNumber(parent, 'sizeY', 2);
+                
+                const parentRot = computeItemBaseRotation(offsetX, offsetY, sizeX, sizeY, OPTIONS.segments);
+                const parentY = normalizeAngle(parentRot.rotateY);
+                const globalY = normalizeAngle(rotation.y);
+                
+                let rotY = -(parentY + globalY) % 360;
+                if (rotY < -180) rotY += 360;
+                const rotX = -parentRot.rotateX - rotation.x;
+                
+                parent.style.setProperty('--rot-y-delta', `${rotY}deg`);
+                parent.style.setProperty('--rot-x-delta', `${rotX}deg`);
+                
+                const refDiv = document.createElement('div');
+                refDiv.className = 'item__image item__image--reference';
+                refDiv.style.opacity = '0';
+                refDiv.style.transform = `rotateX(${-parentRot.rotateX}deg) rotateY(${-parentRot.rotateY}deg)`;
+                parent.appendChild(refDiv);
+
+                void refDiv.offsetHeight;
+
+                const tileR = refDiv.getBoundingClientRect();
+                const mainR = mainEl?.getBoundingClientRect();
+                const frameR = frameEl?.getBoundingClientRect();
+
+                if (!mainR || !frameR || tileR.width <= 0 || tileR.height <= 0) {
+                    opening = false;
+                    focusedEl = null;
+                    parent.removeChild(refDiv);
+                    unlockScroll();
+                    return;
+                }
+
+                originalTilePosition = { left: tileR.left, top: tileR.top, width: tileR.width, height: tileR.height };
+                el.style.visibility = 'hidden';
+                el.style.zIndex = 0;
+                
+                const overlay = document.createElement('div');
+                overlay.className = 'enlarge';
+                overlay.style.position = 'absolute';
+                overlay.style.left = frameR.left - mainR.left + 'px';
+                overlay.style.top = frameR.top - mainR.top + 'px';
+                overlay.style.width = frameR.width + 'px';
+                overlay.style.height = frameR.height + 'px';
+                overlay.style.opacity = '0';
+                overlay.style.zIndex = '30';
+                overlay.style.willChange = 'transform, opacity';
+                overlay.style.transformOrigin = 'top left';
+                overlay.style.transition = `transform ${OPTIONS.enlargeTransitionMs}ms ease, opacity ${OPTIONS.enlargeTransitionMs}ms ease`;
+                
+                const rawSrc = parent.dataset.src || el.querySelector('img')?.src || '';
+                const img = document.createElement('img');
+                img.src = rawSrc;
+                overlay.appendChild(img);
+                viewerEl.appendChild(overlay);
+                
+                const tx0 = tileR.left - frameR.left;
+                const ty0 = tileR.top - frameR.top;
+                const sx0 = tileR.width / frameR.width;
+                const sy0 = tileR.height / frameR.height;
+
+                const validSx0 = isFinite(sx0) && sx0 > 0 ? sx0 : 1;
+                const validSy0 = isFinite(sy0) && sy0 > 0 ? sy0 : 1;
+
+                overlay.style.transform = `translate(${tx0}px, ${ty0}px) scale(${validSx0}, ${validSy0})`;
+
+                setTimeout(() => {
+                    if (!overlay.parentElement) return;
+                    overlay.style.opacity = '1';
+                    overlay.style.transform = 'translate(0px, 0px) scale(1, 1)';
+                    rootEl?.setAttribute('data-enlarging', 'true');
+                }, 16);
+
+                const wantsResize = OPTIONS.openedImageWidth || OPTIONS.openedImageHeight;
+                if (wantsResize) {
+                    const onFirstEnd = ev => {
+                        if (ev.propertyName !== 'transform') return;
+                        overlay.removeEventListener('transitionend', onFirstEnd);
+                        
+                        const prevTransition = overlay.style.transition;
+                        overlay.style.transition = 'none';
+                        
+                        const tempWidth = OPTIONS.openedImageWidth || `${frameR.width}px`;
+                        const tempHeight = OPTIONS.openedImageHeight || `${frameR.height}px`;
+                        
+                        overlay.style.width = tempWidth;
+                        overlay.style.height = tempHeight;
+                        const newRect = overlay.getBoundingClientRect();
+                        overlay.style.width = frameR.width + 'px';
+                        overlay.style.height = frameR.height + 'px';
+                        
+                        void overlay.offsetWidth;
+                        
+                        overlay.style.transition = `left ${OPTIONS.enlargeTransitionMs}ms ease, top ${OPTIONS.enlargeTransitionMs}ms ease, width ${OPTIONS.enlargeTransitionMs}ms ease, height ${OPTIONS.enlargeTransitionMs}ms ease`;
+                        
+                        const centeredLeft = frameR.left - mainR.left + (frameR.width - newRect.width) / 2;
+                        const centeredTop = frameR.top - mainR.top + (frameR.height - newRect.height) / 2;
+                        
+                        requestAnimationFrame(() => {
+                            overlay.style.left = `${centeredLeft}px`;
+                            overlay.style.top = `${centeredTop}px`;
+                            overlay.style.width = tempWidth;
+                            overlay.style.height = tempHeight;
+                        });
+                        
+                        const cleanupSecond = () => {
+                            overlay.removeEventListener('transitionend', cleanupSecond);
+                            overlay.style.transition = prevTransition;
+                        };
+                        overlay.addEventListener('transitionend', cleanupSecond, { once: true });
+                    };
+                    overlay.addEventListener('transitionend', onFirstEnd);
+                }
+            };
+
+            // [CHANGE 4: Replaced the body of this function]
+            const onTileClick = (e) => {
+                // Prevent click if dragging, moved, or just finished dragging
+                if (dragging) return;
+                if (moved) return;
+                if (performance.now() - lastDragEndAt < 80) return;
+                if (opening) return; // Still good to prevent clicks during other animations
+
+                // Get the link from the element's data
+                const link = e.currentTarget.dataset.href;
+                if (link && link !== '#') {
+                    // Open the link in a new tab
+                    window.open(link, '_blank', 'noopener,noreferrer');
+                }
+            };
+
+            // [CHANGE 5: Replaced the body of this function]
+            const onTilePointerUp = (e) => {
+                if (e.pointerType !== 'touch') return;
+                
+                // Prevent click if dragging, moved, or just finished dragging
+                if (dragging) return;
+                if (moved) return;
+                if (performance.now() - lastDragEndAt < 80) return;
+                if (opening) return; // Still good to prevent clicks during other animations
+
+                // Get the link from the element's data
+                const link = e.currentTarget.dataset.href;
+                if (link && link !== '#') {
+                    // Open the link in a new tab
+                    window.open(link, '_blank', 'noopener,noreferrer');
+                }
+            };
+
+            // --- Initialization (from useEffect) ---
+
+            // 1. Set global CSS variables
+            rootEl.style.setProperty('--segments-x', OPTIONS.segments);
+            rootEl.style.setProperty('--segments-y', OPTIONS.segments);
+            rootEl.style.setProperty('--overlay-blur-color', OPTIONS.overlayBlurColor);
+            rootEl.style.setProperty('--tile-radius', OPTIONS.imageBorderRadius);
+            rootEl.style.setProperty('--enlarge-radius', OPTIONS.openedImageBorderRadius);
+            rootEl.style.setProperty('--image-filter', OPTIONS.grayscale ? 'grayscale(1)' : 'none');
+
+            // 2. Build and append items
+            const items = buildItems(OPTIONS.images, OPTIONS.segments);
+            items.forEach(it => {
+                const itemEl = document.createElement('div');
+                itemEl.className = 'item';
+                itemEl.dataset.src = it.src;
+                itemEl.dataset.offsetX = it.x;
+                itemEl.dataset.offsetY = it.y;
+                itemEl.dataset.sizeX = it.sizeX;
+                itemEl.dataset.sizeY = it.sizeY;
+                itemEl.style.setProperty('--offset-x', it.x);
+                itemEl.style.setProperty('--offset-y', it.y);
+                itemEl.style.setProperty('--item-size-x', it.sizeX);
+                itemEl.style.setProperty('--item-size-y', it.sizeY);
+
+                const itemImageEl = document.createElement('div');
+                itemImageEl.className = 'item__image';
+                itemImageEl.dataset.href = it.href; // [CHANGE 3: Add the href to the element's dataset]
+                itemImageEl.setAttribute('role', 'button');
+                itemImageEl.tabIndex = 0;
+                itemImageEl.setAttribute('aria-label', it.alt || 'Open image');
+
+                const imgEl = document.createElement('img');
+                imgEl.src = it.src;
+                imgEl.draggable = false;
+                imgEl.alt = it.alt;
+
+                itemImageEl.appendChild(imgEl);
+                itemEl.appendChild(itemImageEl);
+                sphereEl.appendChild(itemEl);
+
+                // Attach event listeners
+                itemImageEl.addEventListener('click', onTileClick);
+                itemImageEl.addEventListener('pointerup', onTilePointerUp);
+            });
+
+            // 3. Setup ResizeObserver
+            const ro = new ResizeObserver(entries => {
+                const cr = entries[0].contentRect;
+                const w = Math.max(1, cr.width),
+                    h = Math.max(1, cr.height);
+                const minDim = Math.min(w, h),
+                    maxDim = Math.max(w, h),
+                    aspect = w / h;
+                let basis;
+                switch (OPTIONS.fitBasis) {
+                    case 'min': basis = minDim; break;
+                    case 'max': basis = maxDim; break;
+                    case 'width': basis = w; break;
+                    case 'height': basis = h; break;
+                    default: basis = aspect >= 1.3 ? w : minDim;
+                }
+                let radius = basis * OPTIONS.fit;
+                const heightGuard = h * 1.35;
+                radius = Math.min(radius, heightGuard);
+                radius = clamp(radius, OPTIONS.minRadius, OPTIONS.maxRadius);
+                lockedRadius = Math.round(radius);
+
+                const viewerPad = Math.max(8, Math.round(minDim * OPTIONS.padFactor));
+                rootEl.style.setProperty('--radius', `${lockedRadius}px`);
+                rootEl.style.setProperty('--viewer-pad', `${viewerPad}px`);
+
+                applyTransform(rotation.x, rotation.y);
+
+                const enlargedOverlay = viewerEl?.querySelector('.enlarge');
+                if (enlargedOverlay && frameEl && mainEl) {
+                    const frameR = frameEl.getBoundingClientRect();
+                    const mainR = mainEl.getBoundingClientRect();
+
+                    const hasCustomSize = OPTIONS.openedImageWidth && OPTIONS.openedImageHeight;
+                    if (hasCustomSize) {
+                        const tempDiv = document.createElement('div');
+                        tempDiv.style.cssText = `position: absolute; width: ${OPTIONS.openedImageWidth}; height: ${OPTIONS.openedImageHeight}; visibility: hidden;`;
+                        document.body.appendChild(tempDiv);
+                        const tempRect = tempDiv.getBoundingClientRect();
+                        document.body.removeChild(tempDiv);
+
+                        const centeredLeft = frameR.left - mainR.left + (frameR.width - tempRect.width) / 2;
+                        const centeredTop = frameR.top - mainR.top + (frameR.height - tempRect.height) / 2;
+
+                        enlargedOverlay.style.left = `${centeredLeft}px`;
+                        enlargedOverlay.style.top = `${centeredTop}px`;
+                    } else {
+                        enlargedOverlay.style.left = `${frameR.left - mainR.left}px`;
+                        enlargedOverlay.style.top = `${frameR.top - mainR.top}px`;
+                        enlargedOverlay.style.width = `${frameR.width}px`;
+                        enlargedOverlay.style.height = `${frameR.height}px`;
+                    }
+                }
+            });
+            ro.observe(rootEl);
+
+            // 4. Apply initial transform
+            applyTransform(rotation.x, rotation.y);
+
+            // 5. Setup Scrim/Escape key close listeners
+            // This logic is for the enlarge animation, which is no longer
+            // triggered by default, but we'll leave it.
+            const closeEnlargedView = () => {
+                if (performance.now() - openStartedAt < 250) return;
+                const el = focusedEl;
+                if (!el) return;
+                
+                const parent = el.parentElement;
+                const overlay = viewerEl?.querySelector('.enlarge');
+                if (!overlay) return;
+                
+                const refDiv = parent.querySelector('.item__image--reference');
+                const originalPos = originalTilePosition;
+                
+                if (!originalPos) {
+                    overlay.remove();
+                    if (refDiv) refDiv.remove();
+                    parent.style.setProperty('--rot-y-delta', '0deg');
+                    parent.style.setProperty('--rot-x-delta', '0deg');
+                    el.style.visibility = '';
+                    el.style.zIndex = 0;
+                    focusedEl = null;
+                    rootEl?.removeAttribute('data-enlarging');
+                    opening = false;
+                    unlockScroll();
+                    return;
+                }
+
+                const currentRect = overlay.getBoundingClientRect();
+                const rootRect = rootEl.getBoundingClientRect();
+                const originalPosRelativeToRoot = {
+                    left: originalPos.left - rootRect.left,
+                    top: originalPos.top - rootRect.top,
+                    width: originalPos.width,
+                    height: originalPos.height
+                };
+                const overlayRelativeToRoot = {
+                    left: currentRect.left - rootRect.left,
+                    top: currentRect.top - rootRect.top,
+                    width: currentRect.width,
+                    height: currentRect.height
+                };
+
+                const animatingOverlay = document.createElement('div');
+                animatingOverlay.className = 'enlarge-closing';
+                animatingOverlay.style.cssText = `position:absolute;left:${overlayRelativeToRoot.left}px;top:${overlayRelativeToRoot.top}px;width:${overlayRelativeToRoot.width}px;height:${overlayRelativeToRoot.height}px;z-index:9999;border-radius: var(--enlarge-radius, 32px);overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:all ${OPTIONS.enlargeTransitionMs}ms ease-out;pointer-events:none;margin:0;transform:none;`;
+                
+                const originalImg = overlay.querySelector('img');
+                if (originalImg) {
+                    const img = originalImg.cloneNode();
+                    img.style.cssText = 'width:100%;height:100%;object-fit:cover;';
+                    animatingOverlay.appendChild(img);
+                }
+                
+                overlay.remove();
+                rootEl.appendChild(animatingOverlay);
+                
+                void animatingOverlay.getBoundingClientRect();
+                
+                requestAnimationFrame(() => {
+                    animatingOverlay.style.left = originalPosRelativeToRoot.left + 'px';
+                    animatingOverlay.style.top = originalPosRelativeToRoot.top + 'px';
+                    animatingOverlay.style.width = originalPosRelativeToRoot.width + 'px';
+                    animatingOverlay.style.height = originalPosRelativeToRoot.height + 'px';
+                    animatingOverlay.style.opacity = '0';
+                });
+
+                const cleanup = () => {
+                    animatingOverlay.remove();
+                    originalTilePosition = null;
+                    if (refDiv) refDiv.remove();
+                    parent.style.transition = 'none';
+                    el.style.transition = 'none';
+                    parent.style.setProperty('--rot-y-delta', '0deg');
+                    parent.style.setProperty('--rot-x-delta', '0deg');
+                    
+                    requestAnimationFrame(() => {
+                        el.style.visibility = '';
+                        el.style.opacity = '0';
+                        el.style.zIndex = 0;
+                        focusedEl = null;
+                        rootEl?.removeAttribute('data-enlarging');
+                        
+                        requestAnimationFrame(() => {
+                            parent.style.transition = '';
+                            el.style.transition = 'opacity 300ms ease-out';
+                            
+                            requestAnimationFrame(() => {
+                                el.style.opacity = '1';
+                                setTimeout(() => {
+                                    el.style.transition = '';
+                                    el.style.opacity = '';
+                                    opening = false;
+                                    if (!dragging && rootEl?.getAttribute('data-enlarging') !== 'true')
+                                        document.body.classList.remove('dg-scroll-lock');
+                                }, 300);
+                            });
+                        });
+                    });
+                };
+                animatingOverlay.addEventListener('transitionend', cleanup, { once: true });
+            };
+
+            scrimEl.addEventListener('click', closeEnlargedView);
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeEnlargedView();
+            });
+
+            // 6. Cleanup scroll lock on page exit
+            window.addEventListener('beforeunload', () => {
+                document.body.classList.remove('dg-scroll-lock');
+            });
+
+
+            // --- Drag Logic (replaces useGesture) ---
+
+            mainEl.addEventListener('pointerdown', (e) => {
+                if (focusedEl) return;
+                stopInertia();
+                dragging = true;
+                moved = false;
+                startRot = { ...rotation };
+                startPos = { x: e.clientX, y: e.clientY };
+                
+                // Init velocity tracking
+                lastMoveTime = performance.now();
+                lastMovePos = { x: e.clientX, y: e.clientY };
+                lastVelocity = { x: 0, y: 0 };
+            });
+
+            window.addEventListener('pointermove', (e) => {
+                if (!dragging || !startPos) return;
+
+                const dxTotal = e.clientX - startPos.x;
+                const dyTotal = e.clientY - startPos.y;
+
+                if (!moved) {
+                    const dist2 = dxTotal * dxTotal + dyTotal * dyTotal;
+                    if (dist2 > 16) moved = true;
+                }
+
+                const nextX = clamp(
+                    startRot.x - dyTotal / OPTIONS.dragSensitivity,
+                    -OPTIONS.maxVerticalRotationDeg,
+                    OPTIONS.maxVerticalRotationDeg
+                );
+                const nextY = wrapAngleSigned(startRot.y + dxTotal / OPTIONS.dragSensitivity);
+
+                if (rotation.x !== nextX || rotation.y !== nextY) {
+                    rotation = { x: nextX, y: nextY };
+                    applyTransform(nextX, nextY);
+                }
+
+                // Calculate velocity
+                const now = performance.now();
+                const dt = now - lastMoveTime;
+                if (dt > 16) { // ~60fps
+                    const dx = e.clientX - lastMovePos.x;
+                    const dy = e.clientY - lastMovePos.y;
+                    
+                    lastVelocity.x = dx / dt; // px/ms
+                    lastVelocity.y = dy / dt; // px/ms
+                    
+                    lastMoveTime = now;
+                    lastMovePos = { x: e.clientX, y: e.clientY };
+                }
+            });
+
+            window.addEventListener('pointerup', (e) => {
+                if (!dragging) return;
+                dragging = false;
+
+                let vx = lastVelocity.x;
+                let vy = lastVelocity.y;
+                
+                // Fallback velocity calculation from original code
+                if (Math.abs(vx) < 0.001 && Math.abs(vy) < 0.001 && moved) {
+                    const [mx, my] = [e.clientX - startPos.x, e.clientY - startPos.y];
+                    vx = clamp((mx / OPTIONS.dragSensitivity) * 0.02, -1.2, 1.2);
+                    vy = clamp((my / OPTIONS.dragSensitivity) * 0.02, -1.2, 1.2);
+                }
+
+                if (Math.abs(vx) > 0.005 || Math.abs(vy) > 0.005) {
+                    startInertia(vx, vy);
+                }
+
+                if (moved) {
+                    lastDragEndAt = performance.now();
+                }
+                moved = false;
+            });
 
         });
     </script>
