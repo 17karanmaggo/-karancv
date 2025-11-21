@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karan Maggo - Web Designer Portfolio</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -20,7 +26,8 @@
         */
 
         :root {
-            --primary-color: #00aaff; /* A bright, modern blue */
+            --primary-color: #00aaff;
+            /* A bright, modern blue */
             --dark-color: #1a1a1a;
             --light-color: #f4f4f4;
             --secondary-dark: #222;
@@ -44,7 +51,12 @@
             overflow: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: var(--font-heading);
             font-weight: 600;
             color: #fff;
@@ -68,8 +80,10 @@
 
         section {
             padding: 80px 0;
-            overflow-x: hidden; /* Prevents horizontal scroll from animations */
-            position: relative; /* Good for child absolute positioning */
+            overflow-x: hidden;
+            /* Prevents horizontal scroll from animations */
+            position: relative;
+            /* Good for child absolute positioning */
         }
 
         .bg-dark-secondary {
@@ -87,7 +101,8 @@
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid #333;
             transition: background-color 0.3s ease, padding 0.3s ease;
-            padding: 16px 0; /* Added for shrink effect */
+            padding: 16px 0;
+            /* Added for shrink effect */
         }
 
         .navbar-brand {
@@ -107,7 +122,7 @@
             padding: 8px 0;
             margin: 0 15px;
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -135,15 +150,29 @@
                 padding: 10px;
                 text-align: center;
             }
+
             .nav-link::after {
                 display: none;
             }
+
             .nav-link:hover,
             .nav-link.active {
                 background-color: var(--primary-color);
                 color: #fff !important;
                 border-radius: 5px;
             }
+
+            #gallery .sphere-root {
+
+                height: 70vh !important;
+
+            }
+            #gallery {
+    padding: 0;
+    min-height: 75vh !important;
+    position: relative;
+    background-color: #222222;
+}
         }
 
 
@@ -155,10 +184,11 @@
         #home {
             min-height: 100vh;
             /* Placeholder Image - replace with your own */
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
             background-size: cover;
             background-position: center center;
-            background-attachment: fixed; /* This creates the parallax effect */
+            background-attachment: fixed;
+            /* This creates the parallax effect */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -169,7 +199,7 @@
         #home h1 {
             font-size: 4.5rem;
             font-weight: 700;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         #home p {
@@ -178,7 +208,7 @@
             font-weight: 300;
             color: var(--primary-color);
             margin-top: 1rem;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
         }
 
         /* Simple animated chevron */
@@ -193,12 +223,19 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
                 transform: translateX(-50%) translateY(0);
             }
+
             40% {
                 transform: translateX(-50%) translateY(-20px);
             }
+
             60% {
                 transform: translateX(-50%) translateY(-10px);
             }
@@ -213,7 +250,7 @@
             max-width: 350px;
             border-radius: 10px;
             border: 5px solid #333;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .about-text .lead {
@@ -232,10 +269,12 @@
             margin-bottom: 15px;
             border-left: 4px solid var(--primary-color);
         }
+
         .education-item h5 {
             color: var(--primary-color);
             margin: 0;
         }
+
         .education-item p {
             margin: 5px 0 0;
             color: #ccc;
@@ -253,12 +292,13 @@
             border-radius: 10px;
             transition: all 0.3s ease-out;
             border: 1px solid #333;
-            height: 100%; /* Added for equal height */
+            height: 100%;
+            /* Added for equal height */
         }
 
         .skill-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
             background-color: #2a2a2a;
         }
 
@@ -267,16 +307,41 @@
             color: var(--primary-color);
             transition: color 0.3s ease;
         }
-        
+
         /* Custom colors for brand icons on hover */
-        .skill-item:hover .fa-html5 { color: #E34F26; }
-        .skill-item:hover .fa-css3-alt { color: #1572B6; }
-        .skill-item:hover .fa-js { color: #F7DF1E; }
-        .skill-item:hover .fa-bootstrap { color: #7952B3; }
-        .skill-item:hover .fa-angular { color: #DD0031; }
-        .skill-item:hover .fa-sass { color: #CC6699; }
-        .skill-item:hover .fa-adobe { color: #FF0000; }
-        .skill-item:hover .fa-c { color: #395698; } /* Canva placeholder */
+        .skill-item:hover .fa-html5 {
+            color: #E34F26;
+        }
+
+        .skill-item:hover .fa-css3-alt {
+            color: #1572B6;
+        }
+
+        .skill-item:hover .fa-js {
+            color: #F7DF1E;
+        }
+
+        .skill-item:hover .fa-bootstrap {
+            color: #7952B3;
+        }
+
+        .skill-item:hover .fa-angular {
+            color: #DD0031;
+        }
+
+        .skill-item:hover .fa-sass {
+            color: #CC6699;
+        }
+
+        .skill-item:hover .fa-adobe {
+            color: #FF0000;
+        }
+
+        .skill-item:hover .fa-c {
+            color: #395698;
+        }
+
+        /* Canva placeholder */
 
         .skill-item h4 {
             margin-top: 1rem;
@@ -343,6 +408,7 @@
         .timeline-item.left::after {
             right: -10px;
         }
+
         .timeline-item.right::after {
             left: -10px;
         }
@@ -358,16 +424,19 @@
         .timeline-content h3 {
             color: var(--primary-color);
         }
+
         .timeline-content .company {
             font-weight: 600;
             color: #ccc;
         }
+
         .timeline-content .date {
             font-size: 0.9rem;
             color: #888;
             font-weight: 300;
             margin-bottom: 10px;
         }
+
         .timeline-content .badge {
             margin-right: 5px;
         }
@@ -377,18 +446,22 @@
             .timeline::after {
                 left: 30px;
             }
+
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
+
             .timeline-item.left,
             .timeline-item.right {
                 left: 0%;
             }
+
             .timeline-item.left::after,
             .timeline-item.right::after {
-                left: 21px; /* 30px - (20px/2) - 4px border */
+                left: 21px;
+                /* 30px - (20px/2) - 4px border */
             }
         }
 
@@ -409,17 +482,31 @@
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(0,255,255,0.1), transparent);
+            background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.1), transparent);
             filter: blur(60px);
             z-index: 0;
             animation: float 12s infinite ease-in-out alternate;
         }
-        #projects .blob1 { top: -80px; left: -100px; }
-        #projects .blob2 { bottom: -100px; right: -120px; background: radial-gradient(circle at 70% 70%, rgba(255,0,150,0.1), transparent); }
+
+        #projects .blob1 {
+            top: -80px;
+            left: -100px;
+        }
+
+        #projects .blob2 {
+            bottom: -100px;
+            right: -120px;
+            background: radial-gradient(circle at 70% 70%, rgba(255, 0, 150, 0.1), transparent);
+        }
 
         @keyframes float {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-40px) scale(1.1); }
+            0% {
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                transform: translateY(-40px) scale(1.1);
+            }
         }
 
         /* Project Card Styling */
@@ -431,11 +518,12 @@
             cursor: pointer;
             background: #222;
             transition: transform 0.5s ease, box-shadow 0.5s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
+
         .project-card:hover {
             transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
 
         .project-img {
@@ -445,6 +533,7 @@
             background-position: center;
             transition: transform 1s ease;
         }
+
         .project-card:hover .project-img {
             transform: scale(1.15) rotate(2deg);
             filter: brightness(0.7);
@@ -456,11 +545,12 @@
             bottom: 0;
             width: 100%;
             padding: 30px;
-            background: linear-gradient(180deg, transparent, rgba(0,0,0,0.85));
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.85));
             transform: translateY(100%);
             transition: all 0.5s ease;
             z-index: 2;
         }
+
         .project-card:hover .project-overlay {
             transform: translateY(0);
         }
@@ -470,15 +560,18 @@
             margin-bottom: 10px;
             color: #fff;
         }
+
         .project-overlay p {
             font-size: 0.9rem;
             color: #bbb;
         }
+
         .project-overlay .btn {
             margin-top: 10px;
             border-radius: 50px;
             transition: all 0.3s ease;
         }
+
         .project-overlay .btn:hover {
             background: #00d2ff;
             color: #000;
@@ -487,9 +580,17 @@
 
         /* Responsive Fixes */
         @media (max-width: 767px) {
-            .project-card { height: 280px; }
-            .project-overlay { padding: 20px; }
-            #projects .floating-blob { display: none; }
+            .project-card {
+                height: 280px;
+            }
+
+            .project-overlay {
+                padding: 20px;
+            }
+
+            #projects .floating-blob {
+                display: none;
+            }
         }
 
         /*
@@ -502,21 +603,25 @@
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
+
         .contact-info a {
             color: #ccc;
             text-decoration: none;
             font-size: 1.1rem;
             transition: color 0.3s ease;
         }
+
         .contact-info a:hover {
             color: var(--primary-color);
         }
+
         .social-icons a {
             font-size: 2rem;
             color: #888;
             margin: 0 15px;
             transition: all 0.3s ease;
         }
+
         .social-icons a:hover {
             color: var(--primary-color);
             transform: translateY(-5px);
@@ -556,23 +661,54 @@
             transform: translateY(30px);
             animation: fadeInChild 0.6s ease-out forwards;
         }
+
         @keyframes fadeInChild {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         /* Delay for staggered items */
-        .animate-child:nth-child(1) { animation-delay: 0.1s; }
-        .animate-child:nth-child(2) { animation-delay: 0.2s; }
-        .animate-child:nth-child(3) { animation-delay: 0.3s; }
-        .animate-child:nth-child(4) { animation-delay: 0.4s; }
-        .animate-child:nth-child(5) { animation-delay: 0.5s; }
-        .animate-child:nth-child(6) { animation-delay: 0.6s; }
-        .animate-child:nth-child(7) { animation-delay: 0.7s; }
-        .animate-child:nth-child(8) { animation-delay: 0.8s; }
-        .animate-child:nth-child(9) { animation-delay: 0.9s; }
-        .animate-child:nth-child(10) { animation-delay: 1.0s; }
+        .animate-child:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .animate-child:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .animate-child:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .animate-child:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .animate-child:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .animate-child:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .animate-child:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .animate-child:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        .animate-child:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        .animate-child:nth-child(10) {
+            animation-delay: 1.0s;
+        }
 
 
         /*
@@ -583,8 +719,10 @@
 
         /* This is the new section wrapper for the gallery */
         #gallery {
-            padding: 0; /* Override section padding */
-            min-height: 100vh; /* Make it a full-height section */
+            padding: 0;
+            /* Override section padding */
+            min-height: 100vh;
+            /* Make it a full-height section */
             position: relative;
             background-color: #222222;
         }
@@ -592,7 +730,8 @@
         #gallery .sphere-root {
             position: relative;
             width: 100%;
-            height: 100vh; /* Full height of its parent section */
+            height: 100vh;
+            /* Full height of its parent section */
             --radius: 520px;
             --viewer-pad: 72px;
             --circ: calc(var(--radius) * 3.14);
@@ -670,9 +809,7 @@
             transform-origin: 50% 50%;
             backface-visibility: hidden;
             transition: transform 300ms;
-            transform: rotateY(calc(var(--rot-y) * (var(--offset-x) + ((var(--item-size-x) - 1) / 2)) + var(--rot-y-delta, 0deg)))
-                rotateX(calc(var(--rot-x) * (var(--offset-y) - ((var(--item-size-y) - 1) / 2)) + var(--rot-x-delta, 0deg)))
-                translateZ(var(--radius));
+            transform: rotateY(calc(var(--rot-y) * (var(--offset-x) + ((var(--item-size-x) - 1) / 2)) + var(--rot-y-delta, 0deg))) rotateX(calc(var(--rot-x) * (var(--offset-y) - ((var(--item-size-y) - 1) / 2)) + var(--rot-x-delta, 0deg))) translateZ(var(--radius));
         }
 
         #gallery .item__image {
@@ -795,7 +932,8 @@
     <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home">Karan Maggo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -840,14 +978,18 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 text-center text-lg-start animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1055&q=80" alt="Karan Maggo" class="img-fluid">
+                    <lottie-player src="animated-about.json" background="transparent" speed="1"
+                        style="width: 100%; height: 100%" loop autoplay></lottie-player>
+                    <!-- <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1055&q=80" alt="Karan Maggo" class="img-fluid"> -->
                 </div>
                 <div class="col-lg-7 mt-5 mt-lg-0 animate-on-scroll" style="transition-delay: 0.2s;">
                     <div class="about-text">
                         <h2 class="section-heading">About Me</h2>
                         <h3 class="mb-3">A Growth-Oriented Web Designer</h3>
-                        <p class="lead">To have a growth oriented career, where I can contribute my knowledge and skills to the organization and enhance my experience through continuous learning and teamwork and also help in the growth and fulfillment of the organization.</p>
-                        
+                        <p class="lead">To have a growth oriented career, where I can contribute my knowledge and skills
+                            to the organization and enhance my experience through continuous learning and teamwork and
+                            also help in the growth and fulfillment of the organization.</p>
+
                         <h4 class="mt-5 mb-3">Education</h4>
                         <div class="education-item mb-3">
                             <h5>Master of Computer Application </h5>
@@ -869,7 +1011,7 @@
                 <h2 class="section-heading">Core Skills</h2>
                 <p class="section-subheading">My technical toolbox for building modern web experiences.</p>
             </div>
-            
+
             <div class="row g-4 animate-on-scroll justify-content-center">
                 <div class="col-md-4 col-lg-3 animate-child">
                     <div class="skill-item">
@@ -909,7 +1051,8 @@
                 </div>
                 <div class="col-md-4 col-lg-3 animate-child">
                     <div class="skill-item">
-                        <img src="ps.png" style="width: 60px; height: 60px; object-fit: contain; margin-bottom: 0.6rem;" alt="Photoshop">
+                        <img src="ps.png" style="width: 60px; height: 60px; object-fit: contain; margin-bottom: 0.6rem;"
+                            alt="Photoshop">
                         <h4>Adobe Photoshop</h4>
                     </div>
                 </div>
@@ -936,7 +1079,8 @@
                         <h3>Web Designer</h3>
                         <span class="company">ROYALWAYS TECHNOLOGIES Pvt.ltd </span>
                         <span class="date">11/2023 - Present</span>
-                        <p>Designing and developing responsive websites for diverse clients, from real estate to manufacturing, ensuring strong branding and clean UI. </p>
+                        <p>Designing and developing responsive websites for diverse clients, from real estate to
+                            manufacturing, ensuring strong branding and clean UI. </p>
                         <span class="badge bg-primary">HTML</span>
                         <span class="badge bg-primary">CSS</span>
                         <span class="badge bg-primary">JavaScript</span>
@@ -949,7 +1093,8 @@
                         <h3>Web Designer </h3>
                         <span class="company">IMPETUS AI SOLUTIONS</span>
                         <span class="date">10/2022 - 08/2023</span>
-                        <p>Worked on frontend development, coordinating workflows, leading code development, and cooperating with marketers to deliver front-end experiments.</p>
+                        <p>Worked on frontend development, coordinating workflows, leading code development, and
+                            cooperating with marketers to deliver front-end experiments.</p>
                         <span class="badge bg-primary">HTML</span>
                         <span class="badge bg-primary">CSS</span>
                         <span class="badge bg-primary">Angular</span>
@@ -960,7 +1105,7 @@
         </div>
     </section>
 
-    <section id="projects" class="bg-dark-secondary py-5 position-relative overflow-hidden">
+    <section id="projects" class="bg-dark-secondary pt-5 pb-0 position-relative overflow-hidden">
         <div class="container">
             <div class="text-center mb-5 animate-on-scroll">
                 <h2 class="section-heading fw-bold text-gradient">Projects</h2>
@@ -968,14 +1113,14 @@
                     A selection of my work across various industries.
                 </p>
             </div>
-<!-- 
+            <!-- 
             <div class="floating-blob blob1"></div>
             <div class="floating-blob blob2"></div> -->
 
-          
+
         </div>
     </section>
-    
+
     <section id="gallery">
         <div class="sphere-root">
             <main class="sphere-main">
@@ -1015,29 +1160,32 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
     <footer>
         <div class="container">
             <div class="col-12 text-center">
-                <p style="color:#6c6c6c; margin: 0;">&copy; 2025 Karan Maggo. All Rights Reserved. Designed with <i class="fa-solid fa-heart" style="color: var(--primary-color);"></i>.</p>
+                <p style="color:#6c6c6c; margin: 0;">&copy; 2025 Karan Maggo. All Rights Reserved. Designed with <i
+                        class="fa-solid fa-heart" style="color: var(--primary-color);"></i>.</p>
             </div>
         </div>
     </footer>
 
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
 
 
 
 
-   <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
             // --- Intersection Observer for On-Scroll Animations ---
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1091,18 +1239,18 @@
 
 
 
-  <script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
 
             // --- Constants (from React props & defaults) ---
-            
+
             // [CHANGE 1: Add a 'href' property to each image object. This is the link that will open.]
             const DEFAULT_IMAGES = [
                 { src: 'k-1.png', alt: 'Umbera Group', href: 'http://umberagroup.com/' },
                 { src: 'k-2.png', alt: 'Umbera Homez', href: 'https://www.umbera.in/homez/' },
                 { src: 'k-3.png', alt: 'Umbera green', href: 'https://www.umbera.in/green/' },
                 { src: 'k-4.png', alt: 'Umbera majestic', href: 'https://www.umbera.in/majestic/' },
-                  { src: 'k-28.png', alt: 'Umbera Group', href: 'https://www.madhavkrggroup.com/' },
+                { src: 'k-28.png', alt: 'Umbera Group', href: 'https://www.madhavkrggroup.com/' },
                 { src: 'k-5.png', alt: 'Umbera orchard', href: 'https://www.umbera.in/orchard/' },
                 { src: 'k-6.png', alt: 'Umbera Group', href: 'https://www.kayjayforgings.com/' },
                 { src: 'k-7.png', alt: 'Umbera Group', href: 'https://qualitysteelmills.com/' },
@@ -1126,11 +1274,11 @@
                 { src: 'k-25.png', alt: 'Umbera Group', href: 'https://sweethome.net.in/' },
                 { src: 'k-26.png', alt: 'Umbera Group', href: 'https://genixpay.com/' },
                 { src: 'k-27.png', alt: 'Umbera Group', href: 'https://www.madhavkrggroup.com/' },
-              
+
                 { src: 'k-29.png', alt: 'Umbera Group', href: 'https://keshavispat.in/' },
-                
-               
-               ];
+
+
+            ];
 
             const OPTIONS = {
                 images: DEFAULT_IMAGES,
@@ -1174,7 +1322,7 @@
             let focusedEl = null;
             let originalTilePosition = null;
             let lockedRadius = null;
-            
+
             // Gesture state
             let lastMoveTime = 0;
             let lastMovePos = { x: 0, y: 0 };
@@ -1218,7 +1366,7 @@
                         return { src: image, alt: '', href: '#' }; // [CHANGE 2a: Add default href]
                     }
                     // [CHANGE 2b: Read href from object, provide default]
-                    return { src: image.src || '', alt: image.alt || '', href: image.href || '#' }; 
+                    return { src: image.src || '', alt: image.alt || '', href: image.href || '#' };
                 });
 
                 const usedImages = Array.from({ length: totalSlots }, (_, i) => normalizedImages[i % normalizedImages.length]);
@@ -1316,27 +1464,27 @@
                 opening = true;
                 openStartedAt = performance.now();
                 lockScroll();
-                
+
                 const parent = el.parentElement;
                 focusedEl = el;
                 el.setAttribute('data-focused', 'true');
-                
+
                 const offsetX = getDataNumber(parent, 'offsetX', 0);
                 const offsetY = getDataNumber(parent, 'offsetY', 0);
                 const sizeX = getDataNumber(parent, 'sizeX', 2);
                 const sizeY = getDataNumber(parent, 'sizeY', 2);
-                
+
                 const parentRot = computeItemBaseRotation(offsetX, offsetY, sizeX, sizeY, OPTIONS.segments);
                 const parentY = normalizeAngle(parentRot.rotateY);
                 const globalY = normalizeAngle(rotation.y);
-                
+
                 let rotY = -(parentY + globalY) % 360;
                 if (rotY < -180) rotY += 360;
                 const rotX = -parentRot.rotateX - rotation.x;
-                
+
                 parent.style.setProperty('--rot-y-delta', `${rotY}deg`);
                 parent.style.setProperty('--rot-x-delta', `${rotX}deg`);
-                
+
                 const refDiv = document.createElement('div');
                 refDiv.className = 'item__image item__image--reference';
                 refDiv.style.opacity = '0';
@@ -1360,7 +1508,7 @@
                 originalTilePosition = { left: tileR.left, top: tileR.top, width: tileR.width, height: tileR.height };
                 el.style.visibility = 'hidden';
                 el.style.zIndex = 0;
-                
+
                 const overlay = document.createElement('div');
                 overlay.className = 'enlarge';
                 overlay.style.position = 'absolute';
@@ -1373,13 +1521,13 @@
                 overlay.style.willChange = 'transform, opacity';
                 overlay.style.transformOrigin = 'top left';
                 overlay.style.transition = `transform ${OPTIONS.enlargeTransitionMs}ms ease, opacity ${OPTIONS.enlargeTransitionMs}ms ease`;
-                
+
                 const rawSrc = parent.dataset.src || el.querySelector('img')?.src || '';
                 const img = document.createElement('img');
                 img.src = rawSrc;
                 overlay.appendChild(img);
                 viewerEl.appendChild(overlay);
-                
+
                 const tx0 = tileR.left - frameR.left;
                 const ty0 = tileR.top - frameR.top;
                 const sx0 = tileR.width / frameR.width;
@@ -1402,33 +1550,33 @@
                     const onFirstEnd = ev => {
                         if (ev.propertyName !== 'transform') return;
                         overlay.removeEventListener('transitionend', onFirstEnd);
-                        
+
                         const prevTransition = overlay.style.transition;
                         overlay.style.transition = 'none';
-                        
+
                         const tempWidth = OPTIONS.openedImageWidth || `${frameR.width}px`;
                         const tempHeight = OPTIONS.openedImageHeight || `${frameR.height}px`;
-                        
+
                         overlay.style.width = tempWidth;
                         overlay.style.height = tempHeight;
                         const newRect = overlay.getBoundingClientRect();
                         overlay.style.width = frameR.width + 'px';
                         overlay.style.height = frameR.height + 'px';
-                        
+
                         void overlay.offsetWidth;
-                        
+
                         overlay.style.transition = `left ${OPTIONS.enlargeTransitionMs}ms ease, top ${OPTIONS.enlargeTransitionMs}ms ease, width ${OPTIONS.enlargeTransitionMs}ms ease, height ${OPTIONS.enlargeTransitionMs}ms ease`;
-                        
+
                         const centeredLeft = frameR.left - mainR.left + (frameR.width - newRect.width) / 2;
                         const centeredTop = frameR.top - mainR.top + (frameR.height - newRect.height) / 2;
-                        
+
                         requestAnimationFrame(() => {
                             overlay.style.left = `${centeredLeft}px`;
                             overlay.style.top = `${centeredTop}px`;
                             overlay.style.width = tempWidth;
                             overlay.style.height = tempHeight;
                         });
-                        
+
                         const cleanupSecond = () => {
                             overlay.removeEventListener('transitionend', cleanupSecond);
                             overlay.style.transition = prevTransition;
@@ -1458,7 +1606,7 @@
             // [CHANGE 5: Replaced the body of this function]
             const onTilePointerUp = (e) => {
                 if (e.pointerType !== 'touch') return;
-                
+
                 // Prevent click if dragging, moved, or just finished dragging
                 if (dragging) return;
                 if (moved) return;
@@ -1585,14 +1733,14 @@
                 if (performance.now() - openStartedAt < 250) return;
                 const el = focusedEl;
                 if (!el) return;
-                
+
                 const parent = el.parentElement;
                 const overlay = viewerEl?.querySelector('.enlarge');
                 if (!overlay) return;
-                
+
                 const refDiv = parent.querySelector('.item__image--reference');
                 const originalPos = originalTilePosition;
-                
+
                 if (!originalPos) {
                     overlay.remove();
                     if (refDiv) refDiv.remove();
@@ -1625,19 +1773,19 @@
                 const animatingOverlay = document.createElement('div');
                 animatingOverlay.className = 'enlarge-closing';
                 animatingOverlay.style.cssText = `position:absolute;left:${overlayRelativeToRoot.left}px;top:${overlayRelativeToRoot.top}px;width:${overlayRelativeToRoot.width}px;height:${overlayRelativeToRoot.height}px;z-index:9999;border-radius: var(--enlarge-radius, 32px);overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:all ${OPTIONS.enlargeTransitionMs}ms ease-out;pointer-events:none;margin:0;transform:none;`;
-                
+
                 const originalImg = overlay.querySelector('img');
                 if (originalImg) {
                     const img = originalImg.cloneNode();
                     img.style.cssText = 'width:100%;height:100%;object-fit:cover;';
                     animatingOverlay.appendChild(img);
                 }
-                
+
                 overlay.remove();
                 rootEl.appendChild(animatingOverlay);
-                
+
                 void animatingOverlay.getBoundingClientRect();
-                
+
                 requestAnimationFrame(() => {
                     animatingOverlay.style.left = originalPosRelativeToRoot.left + 'px';
                     animatingOverlay.style.top = originalPosRelativeToRoot.top + 'px';
@@ -1654,18 +1802,18 @@
                     el.style.transition = 'none';
                     parent.style.setProperty('--rot-y-delta', '0deg');
                     parent.style.setProperty('--rot-x-delta', '0deg');
-                    
+
                     requestAnimationFrame(() => {
                         el.style.visibility = '';
                         el.style.opacity = '0';
                         el.style.zIndex = 0;
                         focusedEl = null;
                         rootEl?.removeAttribute('data-enlarging');
-                        
+
                         requestAnimationFrame(() => {
                             parent.style.transition = '';
                             el.style.transition = 'opacity 300ms ease-out';
-                            
+
                             requestAnimationFrame(() => {
                                 el.style.opacity = '1';
                                 setTimeout(() => {
@@ -1702,7 +1850,7 @@
                 moved = false;
                 startRot = { ...rotation };
                 startPos = { x: e.clientX, y: e.clientY };
-                
+
                 // Init velocity tracking
                 lastMoveTime = performance.now();
                 lastMovePos = { x: e.clientX, y: e.clientY };
@@ -1738,10 +1886,10 @@
                 if (dt > 16) { // ~60fps
                     const dx = e.clientX - lastMovePos.x;
                     const dy = e.clientY - lastMovePos.y;
-                    
+
                     lastVelocity.x = dx / dt; // px/ms
                     lastVelocity.y = dy / dt; // px/ms
-                    
+
                     lastMoveTime = now;
                     lastMovePos = { x: e.clientX, y: e.clientY };
                 }
@@ -1753,7 +1901,7 @@
 
                 let vx = lastVelocity.x;
                 let vy = lastVelocity.y;
-                
+
                 // Fallback velocity calculation from original code
                 if (Math.abs(vx) < 0.001 && Math.abs(vy) < 0.001 && moved) {
                     const [mx, my] = [e.clientX - startPos.x, e.clientY - startPos.y];
@@ -1773,5 +1921,8 @@
 
         });
     </script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
 </body>
+
 </html>
