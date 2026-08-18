@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Karan Maggo - Web Designer Portfolio</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,7 +30,6 @@
 
         :root {
             --primary-color: #00aaff;
-            /* A bright, modern blue */
             --dark-color: #1a1a1a;
             --light-color: #f4f4f4;
             --secondary-dark: #222;
@@ -49,17 +48,11 @@
             line-height: 1.7;
         }
 
-        /* This global class is used by the Gallery JS */
         body.dg-scroll-lock {
             overflow: hidden;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: var(--font-heading);
             font-weight: 600;
             color: #fff;
@@ -84,9 +77,7 @@
         section {
             padding: 80px 0;
             overflow-x: hidden;
-            /* Prevents horizontal scroll from animations */
             position: relative;
-            /* Good for child absolute positioning */
         }
 
         .bg-dark-secondary {
@@ -105,7 +96,6 @@
             border-bottom: 1px solid #333;
             transition: background-color 0.3s ease, padding 0.3s ease;
             padding: 16px 0;
-            /* Added for shrink effect */
         }
 
         .navbar-brand {
@@ -146,108 +136,108 @@
         .nav-link.active::after {
             width: 100%;
         }
+
         /* FACTS COUNTER */
-#facts-counter{
-    position: relative;
-    overflow: hidden;
-}
+        #facts-counter {
+            position: relative;
+            overflow: hidden;
+        }
 
-.counter-card{
-    position: relative;
-    text-align: center;
-    padding: 40px 25px;
-    background: linear-gradient(145deg,#222,#2b2b2b);
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,.08);
-    transition: all .4s ease;
-    overflow: hidden;
-    height: 100%;
-}
+        .counter-card {
+            position: relative;
+            text-align: center;
+            padding: 40px 25px;
+            background: linear-gradient(145deg, #222, #2b2b2b);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            transition: all .4s ease;
+            overflow: hidden;
+            height: 100%;
+        }
 
-.counter-card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:100%;
-    height:100%;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.08),
-        transparent
-    );
-    transition:.6s;
-}
+        .counter-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, .08),
+                transparent
+            );
+            transition: .6s;
+        }
 
-.counter-card:hover::before{
-    left:100%;
-}
+        .counter-card:hover::before {
+            left: 100%;
+        }
 
-.counter-card:hover{
-    transform:translateY(-10px);
-    border-color:var(--primary-color);
-    box-shadow:0 15px 35px rgba(0,170,255,.25);
-}
+        .counter-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 35px rgba(0, 170, 255, .25);
+        }
 
-.counter-icon{
-    width:80px;
-    height:80px;
-    margin:0 auto 20px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:rgba(0,170,255,.1);
-    border:1px solid rgba(0,170,255,.25);
-}
+        .counter-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 170, 255, .1);
+            border: 1px solid rgba(0, 170, 255, .25);
+        }
 
-.counter-icon i{
-    font-size:32px;
-    color:var(--primary-color);
-}
+        .counter-icon i {
+            font-size: 32px;
+            color: var(--primary-color);
+        }
 
-.counter-value{
-    font-size:3.5rem;
-    font-weight:700;
-    font-family:'Poppins',sans-serif;
-    line-height:1;
-    margin-bottom:10px;
-    color:#fff;
-}
+        .counter-value {
+            font-size: 3.5rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1;
+            margin-bottom: 10px;
+            color: #fff;
+        }
 
-.counter-title{
-    margin:0;
-    font-size:14px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:#bdbdbd;
-}
+        .counter-title {
+            margin: 0;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #bdbdbd;
+        }
 
-@media(max-width:767px){
+        @media(max-width:767px) {
+            .counter-card {
+                padding: 30px 20px;
+            }
 
-    .counter-card{
-        padding:30px 20px;
-    }
+            .counter-icon {
+                width: 65px;
+                height: 65px;
+            }
 
-    .counter-icon{
-        width:65px;
-        height:65px;
-    }
+            .counter-icon i {
+                font-size: 26px;
+            }
 
-    .counter-icon i{
-        font-size:26px;
-    }
+            .counter-value {
+                font-size: 2.5rem;
+            }
 
-    .counter-value{
-        font-size:2.5rem;
-    }
-
-    .counter-title{
-        font-size:12px;
-        letter-spacing:1px;
-    }
-}
+            .counter-title {
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+        }
 
         @media (max-width: 991.98px) {
             .nav-link {
@@ -268,18 +258,16 @@
             }
 
             #gallery .sphere-root {
-
                 height: 70vh !important;
-
             }
-            #gallery {
-    padding: 0;
-    min-height: 75vh !important;
-    position: relative;
-    background-color: #222222;
-}
-        }
 
+            #gallery {
+                padding: 0;
+                min-height: 75vh !important;
+                position: relative;
+                background-color: #222222;
+            }
+        }
 
         /*
         ========================================
@@ -288,12 +276,10 @@
         */
         #home {
             min-height: 100vh;
-            /* Placeholder Image - replace with your own */
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;
-            /* This creates the parallax effect */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -316,7 +302,6 @@
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* Simple animated chevron */
         .scroll-down {
             position: absolute;
             bottom: 30px;
@@ -328,19 +313,12 @@
         }
 
         @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
+            0%, 20%, 50%, 80%, 100% {
                 transform: translateX(-50%) translateY(0);
             }
-
             40% {
                 transform: translateX(-50%) translateY(-20px);
             }
-
             60% {
                 transform: translateX(-50%) translateY(-10px);
             }
@@ -398,7 +376,6 @@
             transition: all 0.3s ease-out;
             border: 1px solid #333;
             height: 100%;
-            /* Added for equal height */
         }
 
         .skill-item:hover {
@@ -414,45 +391,22 @@
         }
 
         /* Custom colors for brand icons on hover */
-        .skill-item:hover .fa-html5 {
-            color: #E34F26;
-        }
-
-        .skill-item:hover .fa-css3-alt {
-            color: #1572B6;
-        }
-
-        .skill-item:hover .fa-js {
-            color: #F7DF1E;
-        }
-
-        .skill-item:hover .fa-bootstrap {
-            color: #7952B3;
-        }
-
-        .skill-item:hover .fa-angular {
-            color: #DD0031;
-        }
-
-        .skill-item:hover .fa-sass {
-            color: #CC6699;
-        }
-
-        .skill-item:hover .fa-adobe {
-            color: #FF0000;
-        }
-
-        .skill-item:hover .fa-c {
-            color: #395698;
-        }
-
-        /* Canva placeholder */
+        .skill-item:hover .fa-html5 { color: #E34F26; }
+        .skill-item:hover .fa-css3-alt { color: #1572B6; }
+        .skill-item:hover .fa-js { color: #F7DF1E; }
+        .skill-item:hover .fa-bootstrap { color: #7952B3; }
+        .skill-item:hover .fa-angular { color: #DD0031; }
+        .skill-item:hover .fa-sass { color: #CC6699; }
+        .skill-item:hover .fa-adobe { color: #FF0000; }
+        .skill-item:hover .fa-c { color: #395698; }
+        .skill-item:hover .fa-figma { color: #F24E1E; }
+        .skill-item:hover .fa-wordpress { color: #21759B; }
+        .skill-item:hover .fa-framer { color: #0055FF; }
 
         .skill-item h4 {
             margin-top: 1rem;
             font-size: 1.25rem;
         }
-
 
         /*
         ========================================
@@ -465,7 +419,6 @@
             margin: 0 auto;
         }
 
-        /* The vertical line */
         .timeline::after {
             content: '';
             position: absolute;
@@ -485,7 +438,6 @@
             width: 50%;
         }
 
-        /* The circles on the timeline */
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -499,24 +451,10 @@
             z-index: 1;
         }
 
-        /* Left-side items */
-        .timeline-item.left {
-            left: 0;
-        }
-
-        /* Right-side items */
-        .timeline-item.right {
-            left: 50%;
-        }
-
-        /* Adjust ::after for left/right */
-        .timeline-item.left::after {
-            right: -10px;
-        }
-
-        .timeline-item.right::after {
-            left: -10px;
-        }
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+        .timeline-item.left::after { right: -10px; }
+        .timeline-item.right::after { left: -10px; }
 
         .timeline-content {
             padding: 20px 30px;
@@ -526,57 +464,36 @@
             border: 1px solid #333;
         }
 
-        .timeline-content h3 {
-            color: var(--primary-color);
-        }
-
-        .timeline-content .company {
-            font-weight: 600;
-            color: #ccc;
-        }
-
+        .timeline-content h3 { color: var(--primary-color); }
+        .timeline-content .company { font-weight: 600; color: #ccc; }
         .timeline-content .date {
             font-size: 0.9rem;
             color: #888;
             font-weight: 300;
             margin-bottom: 10px;
         }
+        .timeline-content .badge { margin-right: 5px; }
 
-        .timeline-content .badge {
-            margin-right: 5px;
-        }
-
-        /* Responsive timeline */
         @media (max-width: 767.98px) {
-            .timeline::after {
-                left: 30px;
-            }
-
+            .timeline::after { left: 30px; }
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
-
             .timeline-item.left,
-            .timeline-item.right {
-                left: 0%;
-            }
-
+            .timeline-item.right { left: 0%; }
             .timeline-item.left::after,
-            .timeline-item.right::after {
-                left: 21px;
-                /* 30px - (20px/2) - 4px border */
-            }
+            .timeline-item.right::after { left: 21px; }
             .skill-item h4 {
-    margin-top: 1rem;
-    font-size: 15px;
-}
+                margin-top: 1rem;
+                font-size: 15px;
+            }
         }
 
         /*
         ========================================
-        PORTFOLIO: Projects Section (Aesthetic Hover)
+        PORTFOLIO: Projects Section
         ========================================
         */
         .text-gradient {
@@ -585,40 +502,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Floating background blobs */
-        #projects .floating-blob {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.1), transparent);
-            filter: blur(60px);
-            z-index: 0;
-            animation: float 12s infinite ease-in-out alternate;
-        }
-
-        #projects .blob1 {
-            top: -80px;
-            left: -100px;
-        }
-
-        #projects .blob2 {
-            bottom: -100px;
-            right: -120px;
-            background: radial-gradient(circle at 70% 70%, rgba(255, 0, 150, 0.1), transparent);
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) scale(1);
-            }
-
-            100% {
-                transform: translateY(-40px) scale(1.1);
-            }
-        }
-
-        /* Project Card Styling */
         .project-card {
             position: relative;
             overflow: hidden;
@@ -648,7 +531,6 @@
             filter: brightness(0.7);
         }
 
-        /* Overlay content */
         .project-overlay {
             position: absolute;
             bottom: 0;
@@ -687,19 +569,9 @@
             border-color: #00d2ff;
         }
 
-        /* Responsive Fixes */
         @media (max-width: 767px) {
-            .project-card {
-                height: 280px;
-            }
-
-            .project-overlay {
-                padding: 20px;
-            }
-
-            #projects .floating-blob {
-                display: none;
-            }
+            .project-card { height: 280px; }
+            .project-overlay { padding: 20px; }
         }
 
         /*
@@ -764,7 +636,6 @@
             transform: translateY(0);
         }
 
-        /* Staggered animation for children */
         .animate-on-scroll.visible .animate-child {
             opacity: 0;
             transform: translateY(30px);
@@ -778,60 +649,26 @@
             }
         }
 
-        /* Delay for staggered items */
-        .animate-child:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .animate-child:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .animate-child:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .animate-child:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        .animate-child:nth-child(5) {
-            animation-delay: 0.5s;
-        }
-
-        .animate-child:nth-child(6) {
-            animation-delay: 0.6s;
-        }
-
-        .animate-child:nth-child(7) {
-            animation-delay: 0.7s;
-        }
-
-        .animate-child:nth-child(8) {
-            animation-delay: 0.8s;
-        }
-
-        .animate-child:nth-child(9) {
-            animation-delay: 0.9s;
-        }
-
-        .animate-child:nth-child(10) {
-            animation-delay: 1.0s;
-        }
-
+        .animate-child:nth-child(1) { animation-delay: 0.1s; }
+        .animate-child:nth-child(2) { animation-delay: 0.2s; }
+        .animate-child:nth-child(3) { animation-delay: 0.3s; }
+        .animate-child:nth-child(4) { animation-delay: 0.4s; }
+        .animate-child:nth-child(5) { animation-delay: 0.5s; }
+        .animate-child:nth-child(6) { animation-delay: 0.6s; }
+        .animate-child:nth-child(7) { animation-delay: 0.7s; }
+        .animate-child:nth-child(8) { animation-delay: 0.8s; }
+        .animate-child:nth-child(9) { animation-delay: 0.9s; }
+        .animate-child:nth-child(10) { animation-delay: 1.0s; }
+        .animate-child:nth-child(11) { animation-delay: 1.1s; }
 
         /*
         ========================================
-        GALLERY: STYLES (SCOPED TO #gallery)
+        GALLERY: STYLES
         ========================================
         */
-
-        /* This is the new section wrapper for the gallery */
         #gallery {
             padding: 0;
-            /* Override section padding */
             min-height: 100vh;
-            /* Make it a full-height section */
             position: relative;
             background-color: #222222;
         }
@@ -840,7 +677,6 @@
             position: relative;
             width: 100%;
             height: 100vh;
-            /* Full height of its parent section */
             --radius: 520px;
             --viewer-pad: 72px;
             --circ: calc(var(--radius) * 3.14);
@@ -850,9 +686,7 @@
             --item-height: calc(var(--circ) / var(--segments-y));
         }
 
-        #gallery .sphere-root * {
-            box-sizing: border-box;
-        }
+        #gallery .sphere-root * { box-sizing: border-box; }
 
         #gallery .sphere,
         #gallery .item,
@@ -938,9 +772,7 @@
             transform: translateZ(0);
         }
 
-        #gallery .item__image:focus {
-            outline: none;
-        }
+        #gallery .item__image:focus { outline: none; }
 
         #gallery .item__image img {
             width: 100%;
@@ -948,7 +780,6 @@
             object-fit: cover;
             pointer-events: none;
             backface-visibility: hidden;
-            /* filter: var(--image-filter, none); */
         }
 
         #gallery .viewer {
@@ -997,9 +828,7 @@
             z-index: 30;
             border-radius: var(--enlarge-radius, 32px);
             overflow: hidden;
-            transition:
-                transform 500ms ease,
-                opacity 500ms ease;
+            transition: transform 500ms ease, opacity 500ms ease;
             transform-origin: top left;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
         }
@@ -1033,6 +862,13 @@
         #gallery .edge-fade--bottom {
             bottom: 0;
         }
+        @media  screen and (max-width:575px) {
+            #home h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+        }
     </style>
 </head>
 
@@ -1062,13 +898,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Gallery</a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
-                    
                 </ul>
             </div>
         </div>
@@ -1079,13 +911,12 @@
             <h1 class="display-3 animate-on-scroll">Karan Maggo</h1>
             <p class="lead animate-on-scroll" style="transition-delay: 0.2s;">Web Designer</p>
             <div class="cv-btn">
-                            <a href="karan-resume.pdf?v=1.0.1" class="btn btn-primary mt-4" download>Download CV</a>
-                        </div>
+                <a href="karan-resume.pdf?v=1.0.1" class="btn btn-primary mt-4" download>Download CV</a>
+            </div>
         </div>
         <a href="#about" class="scroll-down">
             <i class="fa-solid fa-chevron-down"></i>
         </a>
-         
     </section>
 
     <section id="about">
@@ -1094,7 +925,6 @@
                 <div class="col-lg-5 text-center text-lg-start animate-on-scroll">
                     <lottie-player src="animated-about.json" background="transparent" speed="1"
                         style="width: 100%; height: 100%" loop autoplay></lottie-player>
-                    <!-- <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1055&q=80" alt="Karan Maggo" class="img-fluid"> -->
                 </div>
                 <div class="col-lg-7 mt-5 mt-lg-0 animate-on-scroll" style="transition-delay: 0.2s;">
                     <div class="about-text">
@@ -1139,7 +969,7 @@
                 <div class="col-6 col-md-4 col-lg-3 animate-child">
                     <div class="skill-item">
                         <i class="fa-brands fa-css3-alt"></i>
-                        <h4>CSS3 </h4>
+                        <h4>CSS3</h4>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3 animate-child">
@@ -1157,13 +987,31 @@
                 <div class="col-6 col-md-4 col-lg-3 animate-child">
                     <div class="skill-item">
                         <i class="fa-brands fa-angular"></i>
-                        <h4>Angular </h4>
+                        <h4>Angular</h4>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3 animate-child">
                     <div class="skill-item">
                         <i class="fa-brands fa-sass"></i>
                         <h4>SCSS</h4>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-brands fa-figma"></i>
+                        <h4>Figma</h4>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-brands fa-wordpress"></i>
+                        <h4>WordPress</h4>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 animate-child">
+                    <div class="skill-item">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <h4>Framer</h4>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-3 animate-child">
@@ -1230,14 +1078,10 @@
                     A selection of my work across various industries.
                 </p>
             </div>
-            <!-- 
-            <div class="floating-blob blob1"></div>
-            <div class="floating-blob blob2"></div> -->
-
-
         </div>
     </section>
-        <section id="gallery">
+
+    <section id="gallery">
         <div class="sphere-root">
             <main class="sphere-main">
                 <div class="stage">
@@ -1254,7 +1098,8 @@
             </main>
         </div>
     </section>
-      <section id="facts-counter" class="bg-dark-secondary ">
+
+    <section id="facts-counter" class="bg-dark-secondary ">
         <div class="container">
             <div class="row g-4 animate-on-scroll justify-content-center">
                 <div class="col-sm-6 col-md-4 animate-child">
@@ -1274,7 +1119,7 @@
                 <div class="col-sm-6 col-md-4 animate-child">
                     <div class="counter-card">
                         <div class="counter-icon"><i class="fa-solid fa-spinner fa-spin-hover"></i></div>
-                        <div class="counter-value" data-target="5">0</div>
+                        <div class="counter-value" data-target="8">0</div>
                         <h4 class="counter-title">Ongoing Projects</h4>
                     </div>
                 </div>
@@ -1282,13 +1127,10 @@
         </div>
     </section>
 
-
-
     <section id="contact">
         <div class="container">
             <div class="text-center animate-on-scroll">
                 <h2 class="section-heading">Get In Touch</h2>
-                <!-- <p class="section-subheading">I'm currently available for freelance work and new opportunities.</p> -->
             </div>
 
             <div class="row text-center animate-on-scroll" style="transition-delay: 0.2s;">
@@ -1301,35 +1143,34 @@
                 <div class="col-md-6">
                     <div class="contact-info">
                         <i class="fa-solid fa-phone contact-icon"></i>
-                        <div> <a href="tel:8968731373">8968731373</a></div>
+                        <div> <a href="tel:+918968731373">+91 8968731373</a></div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
-
-    <!-- <footer>
-        <div class="container">
-            <div class="col-12 text-center">
-                <p style="color:#6c6c6c; margin: 0;">&copy; 2025 Karan Maggo. All Rights Reserved. Designed with <i
-                        class="fa-solid fa-heart" style="color: var(--primary-color);"></i>.</p>
-            </div>
-        </div>
-    </footer> -->
-
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-
-
-
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+
+            // --- Auto-close mobile navbar on link click ---
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const navCollapse = document.getElementById('navbarNav');
+            if (navCollapse) {
+                const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navCollapse, { toggle: false });
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navCollapse.classList.contains('show')) {
+                            bsCollapse.hide();
+                        }
+                    });
+                });
+            }
 
             // --- Intersection Observer for On-Scroll Animations ---
             const observer = new IntersectionObserver((entries) => {
@@ -1339,38 +1180,32 @@
                     }
                 });
             }, {
-                threshold: 0.1 // Trigger when 10% of the element is visible
+                threshold: 0.1
             });
 
-            // Observe all elements with the class 'animate-on-scroll'
             const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
             elementsToAnimate.forEach(el => {
                 observer.observe(el);
             });
 
-
             // --- Bootstrap ScrollSpy Activation ---
-            // This is handled by data-bs-spy="scroll" on the body tag,
-            // but we can add this to ensure it initializes properly.
             var scrollSpy = new bootstrap.ScrollSpy(document.body, {
                 target: '#mainNavbar',
                 offset: 80
             });
 
-            // --- Navbar shrink on scroll (Optional but nice effect) ---
-            // Let's add this for a more dynamic feel
+            // --- Navbar shrink on scroll ---
             const navbar = document.getElementById('mainNavbar');
             if (navbar) {
                 window.addEventListener('scroll', () => {
                     if (window.scrollY > 50) {
-                        navbar.style.backgroundColor = 'rgba(26, 26, 26, 1)'; // Solid color on scroll
+                        navbar.style.backgroundColor = 'rgba(26, 26, 26, 1)';
                         navbar.style.padding = '8px 0';
                     } else {
-                        navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.85)'; // Semi-transparent at top
+                        navbar.style.backgroundColor = 'rgba(26, 26, 26, 0.85)';
                         navbar.style.padding = '16px 0';
                     }
                 });
-                // Adjust padding transition
                 navbar.style.transition = 'background-color 0.3s ease, padding 0.3s ease';
                 navbar.style.padding = '16px 0';
             }
@@ -1378,18 +1213,9 @@
         });
     </script>
 
-
-
-
-
-
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
 
-            // --- Constants (from React props & defaults) ---
-
-            // [CHANGE 1: Add a 'href' property to each image object. This is the link that will open.]
             const DEFAULT_IMAGES = [
                 { src: 'k-1.png', alt: 'Umbera Group', href: 'http://umberagroup.com/' },
                 { src: 'k-2.png', alt: 'Umbera Homez', href: 'https://www.umbera.in/homez/' },
@@ -1419,19 +1245,14 @@
                 { src: 'k-24.png', alt: 'sweet homes', href: 'https://sweethome.net.in/' },
                 { src: 'k-26.png', alt: 'gemsyn', href: 'https://gemsyn.com/' },
                 { src: 'k-27.png', alt: 'madhav', href: 'https://www.madhavkrggroup.com/' },
-                
                 { src: 'k-29.png', alt: 'kashev', href: 'https://keshavispat.in/' },
                 { src: 'k-30.png', alt: 'yasharyn', href: 'https://www.yasharyn.com/' },
-                // { src: 'k-31.png', alt: 'GVA', href: 'https://gvaassociates.com/' },
                 { src: 'k-32.png', alt: 'the vohra', href: 'https://thevohrafinserv.com/' },
                 { src: 'k-33.png', alt: 'island', href: 'https://www.islandviewcamping.ca/' },
                 { src: 'k-34.png', alt: 'firestone', href: 'https://firestonemetal.in/' },
                 { src: 'k-35.png', alt: 'ludhiana', href: 'https://ludhianasteel.com/' },
                 { src: 'k-36.png', alt: 'nvhc', href: 'https://nvhcfinance.com/' },
-                { src: 'k-37.png', alt: 'urja', href: 'https://www.urjasteels.com/' },
-                // { src: 'k-38.png', alt: 'nvhc', href: 'https://nvhcfinance.com/' },
-
-
+                { src: 'k-37.png', alt: 'urja', href: 'https://www.urjasteels.com/' }
             ];
 
             const OPTIONS = {
@@ -1454,7 +1275,6 @@
                 grayscale: true
             };
 
-            // --- DOM Element References (replaces useRef) ---
             const rootEl = document.querySelector('.sphere-root');
             const mainEl = document.querySelector('.sphere-main');
             const sphereEl = document.querySelector('.sphere');
@@ -1462,7 +1282,6 @@
             const viewerEl = document.querySelector('.viewer');
             const scrimEl = document.querySelector('.scrim');
 
-            // --- State Variables (replaces useRef) ---
             let rotation = { x: 0, y: 0 };
             let startRot = { x: 0, y: 0 };
             let startPos = null;
@@ -1477,12 +1296,10 @@
             let originalTilePosition = null;
             let lockedRadius = null;
 
-            // Gesture state
             let lastMoveTime = 0;
             let lastMovePos = { x: 0, y: 0 };
             let lastVelocity = { x: 0, y: 0 };
 
-            // --- Helper Functions (copied from React) ---
             const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
             const normalizeAngle = d => ((d % 360) + 360) % 360;
             const wrapAngleSigned = deg => {
@@ -1509,17 +1326,11 @@
                 if (pool.length === 0) {
                     return coords.map(c => ({ ...c, src: '', alt: '', href: '#' }));
                 }
-                if (pool.length > totalSlots) {
-                    console.warn(
-                        `[DomeGallery] Provided image count (${pool.length}) exceeds available tiles (${totalSlots}). Some images will not be shown.`
-                    );
-                }
 
                 const normalizedImages = pool.map(image => {
                     if (typeof image === 'string') {
-                        return { src: image, alt: '', href: '#' }; // [CHANGE 2a: Add default href]
+                        return { src: image, alt: '', href: '#' };
                     }
-                    // [CHANGE 2b: Read href from object, provide default]
                     return { src: image.src || '', alt: image.alt || '', href: image.href || '#' };
                 });
 
@@ -1542,7 +1353,7 @@
                     ...c,
                     src: usedImages[i].src,
                     alt: usedImages[i].alt,
-                    href: usedImages[i].href // [CHANGE 2c: Pass href to the final item list]
+                    href: usedImages[i].href
                 }));
             }
 
@@ -1552,8 +1363,6 @@
                 const rotateX = unit * (offsetY - (sizeY - 1) / 2);
                 return { rotateX, rotateY };
             }
-
-            // --- Core Logic Functions (from React component) ---
 
             const applyTransform = (xDeg, yDeg) => {
                 if (sphereEl) {
@@ -1611,173 +1420,29 @@
                 inertiaRAF = requestAnimationFrame(step);
             };
 
-            // This function is no longer called by the click, but is left here
-            // in case you want to restore the enlarge behavior later.
-            const openItemFromElement = (el) => {
-                if (opening) return;
-                opening = true;
-                openStartedAt = performance.now();
-                lockScroll();
-
-                const parent = el.parentElement;
-                focusedEl = el;
-                el.setAttribute('data-focused', 'true');
-
-                const offsetX = getDataNumber(parent, 'offsetX', 0);
-                const offsetY = getDataNumber(parent, 'offsetY', 0);
-                const sizeX = getDataNumber(parent, 'sizeX', 2);
-                const sizeY = getDataNumber(parent, 'sizeY', 2);
-
-                const parentRot = computeItemBaseRotation(offsetX, offsetY, sizeX, sizeY, OPTIONS.segments);
-                const parentY = normalizeAngle(parentRot.rotateY);
-                const globalY = normalizeAngle(rotation.y);
-
-                let rotY = -(parentY + globalY) % 360;
-                if (rotY < -180) rotY += 360;
-                const rotX = -parentRot.rotateX - rotation.x;
-
-                parent.style.setProperty('--rot-y-delta', `${rotY}deg`);
-                parent.style.setProperty('--rot-x-delta', `${rotX}deg`);
-
-                const refDiv = document.createElement('div');
-                refDiv.className = 'item__image item__image--reference';
-                refDiv.style.opacity = '0';
-                refDiv.style.transform = `rotateX(${-parentRot.rotateX}deg) rotateY(${-parentRot.rotateY}deg)`;
-                parent.appendChild(refDiv);
-
-                void refDiv.offsetHeight;
-
-                const tileR = refDiv.getBoundingClientRect();
-                const mainR = mainEl?.getBoundingClientRect();
-                const frameR = frameEl?.getBoundingClientRect();
-
-                if (!mainR || !frameR || tileR.width <= 0 || tileR.height <= 0) {
-                    opening = false;
-                    focusedEl = null;
-                    parent.removeChild(refDiv);
-                    unlockScroll();
-                    return;
-                }
-
-                originalTilePosition = { left: tileR.left, top: tileR.top, width: tileR.width, height: tileR.height };
-                el.style.visibility = 'hidden';
-                el.style.zIndex = 0;
-
-                const overlay = document.createElement('div');
-                overlay.className = 'enlarge';
-                overlay.style.position = 'absolute';
-                overlay.style.left = frameR.left - mainR.left + 'px';
-                overlay.style.top = frameR.top - mainR.top + 'px';
-                overlay.style.width = frameR.width + 'px';
-                overlay.style.height = frameR.height + 'px';
-                overlay.style.opacity = '0';
-                overlay.style.zIndex = '30';
-                overlay.style.willChange = 'transform, opacity';
-                overlay.style.transformOrigin = 'top left';
-                overlay.style.transition = `transform ${OPTIONS.enlargeTransitionMs}ms ease, opacity ${OPTIONS.enlargeTransitionMs}ms ease`;
-
-                const rawSrc = parent.dataset.src || el.querySelector('img')?.src || '';
-                const img = document.createElement('img');
-                img.src = rawSrc;
-                overlay.appendChild(img);
-                viewerEl.appendChild(overlay);
-
-                const tx0 = tileR.left - frameR.left;
-                const ty0 = tileR.top - frameR.top;
-                const sx0 = tileR.width / frameR.width;
-                const sy0 = tileR.height / frameR.height;
-
-                const validSx0 = isFinite(sx0) && sx0 > 0 ? sx0 : 1;
-                const validSy0 = isFinite(sy0) && sy0 > 0 ? sy0 : 1;
-
-                overlay.style.transform = `translate(${tx0}px, ${ty0}px) scale(${validSx0}, ${validSy0})`;
-
-                setTimeout(() => {
-                    if (!overlay.parentElement) return;
-                    overlay.style.opacity = '1';
-                    overlay.style.transform = 'translate(0px, 0px) scale(1, 1)';
-                    rootEl?.setAttribute('data-enlarging', 'true');
-                }, 16);
-
-                const wantsResize = OPTIONS.openedImageWidth || OPTIONS.openedImageHeight;
-                if (wantsResize) {
-                    const onFirstEnd = ev => {
-                        if (ev.propertyName !== 'transform') return;
-                        overlay.removeEventListener('transitionend', onFirstEnd);
-
-                        const prevTransition = overlay.style.transition;
-                        overlay.style.transition = 'none';
-
-                        const tempWidth = OPTIONS.openedImageWidth || `${frameR.width}px`;
-                        const tempHeight = OPTIONS.openedImageHeight || `${frameR.height}px`;
-
-                        overlay.style.width = tempWidth;
-                        overlay.style.height = tempHeight;
-                        const newRect = overlay.getBoundingClientRect();
-                        overlay.style.width = frameR.width + 'px';
-                        overlay.style.height = frameR.height + 'px';
-
-                        void overlay.offsetWidth;
-
-                        overlay.style.transition = `left ${OPTIONS.enlargeTransitionMs}ms ease, top ${OPTIONS.enlargeTransitionMs}ms ease, width ${OPTIONS.enlargeTransitionMs}ms ease, height ${OPTIONS.enlargeTransitionMs}ms ease`;
-
-                        const centeredLeft = frameR.left - mainR.left + (frameR.width - newRect.width) / 2;
-                        const centeredTop = frameR.top - mainR.top + (frameR.height - newRect.height) / 2;
-
-                        requestAnimationFrame(() => {
-                            overlay.style.left = `${centeredLeft}px`;
-                            overlay.style.top = `${centeredTop}px`;
-                            overlay.style.width = tempWidth;
-                            overlay.style.height = tempHeight;
-                        });
-
-                        const cleanupSecond = () => {
-                            overlay.removeEventListener('transitionend', cleanupSecond);
-                            overlay.style.transition = prevTransition;
-                        };
-                        overlay.addEventListener('transitionend', cleanupSecond, { once: true });
-                    };
-                    overlay.addEventListener('transitionend', onFirstEnd);
-                }
-            };
-
-            // [CHANGE 4: Replaced the body of this function]
             const onTileClick = (e) => {
-                // Prevent click if dragging, moved, or just finished dragging
-                if (dragging) return;
-                if (moved) return;
+                if (dragging || moved) return;
                 if (performance.now() - lastDragEndAt < 80) return;
-                if (opening) return; // Still good to prevent clicks during other animations
+                if (opening) return;
 
-                // Get the link from the element's data
                 const link = e.currentTarget.dataset.href;
                 if (link && link !== '#') {
-                    // Open the link in a new tab
                     window.open(link, '_blank', 'noopener,noreferrer');
                 }
             };
 
-            // [CHANGE 5: Replaced the body of this function]
             const onTilePointerUp = (e) => {
                 if (e.pointerType !== 'touch') return;
-
-                // Prevent click if dragging, moved, or just finished dragging
-                if (dragging) return;
-                if (moved) return;
+                if (dragging || moved) return;
                 if (performance.now() - lastDragEndAt < 80) return;
-                if (opening) return; // Still good to prevent clicks during other animations
+                if (opening) return;
 
-                // Get the link from the element's data
                 const link = e.currentTarget.dataset.href;
                 if (link && link !== '#') {
-                    // Open the link in a new tab
                     window.open(link, '_blank', 'noopener,noreferrer');
                 }
             };
 
-            // --- Initialization (from useEffect) ---
-
-            // 1. Set global CSS variables
             rootEl.style.setProperty('--segments-x', OPTIONS.segments);
             rootEl.style.setProperty('--segments-y', OPTIONS.segments);
             rootEl.style.setProperty('--overlay-blur-color', OPTIONS.overlayBlurColor);
@@ -1785,7 +1450,6 @@
             rootEl.style.setProperty('--enlarge-radius', OPTIONS.openedImageBorderRadius);
             rootEl.style.setProperty('--image-filter', OPTIONS.grayscale ? 'grayscale(1)' : 'none');
 
-            // 2. Build and append items
             const items = buildItems(OPTIONS.images, OPTIONS.segments);
             items.forEach(it => {
                 const itemEl = document.createElement('div');
@@ -1802,7 +1466,7 @@
 
                 const itemImageEl = document.createElement('div');
                 itemImageEl.className = 'item__image';
-                itemImageEl.dataset.href = it.href; // [CHANGE 3: Add the href to the element's dataset]
+                itemImageEl.dataset.href = it.href;
                 itemImageEl.setAttribute('role', 'button');
                 itemImageEl.tabIndex = 0;
                 itemImageEl.setAttribute('aria-label', it.alt || 'Open image');
@@ -1816,12 +1480,10 @@
                 itemEl.appendChild(itemImageEl);
                 sphereEl.appendChild(itemEl);
 
-                // Attach event listeners
                 itemImageEl.addEventListener('click', onTileClick);
                 itemImageEl.addEventListener('pointerup', onTilePointerUp);
             });
 
-            // 3. Setup ResizeObserver
             const ro = new ResizeObserver(entries => {
                 const cr = entries[0].contentRect;
                 const w = Math.max(1, cr.width),
@@ -1848,154 +1510,14 @@
                 rootEl.style.setProperty('--viewer-pad', `${viewerPad}px`);
 
                 applyTransform(rotation.x, rotation.y);
-
-                const enlargedOverlay = viewerEl?.querySelector('.enlarge');
-                if (enlargedOverlay && frameEl && mainEl) {
-                    const frameR = frameEl.getBoundingClientRect();
-                    const mainR = mainEl.getBoundingClientRect();
-
-                    const hasCustomSize = OPTIONS.openedImageWidth && OPTIONS.openedImageHeight;
-                    if (hasCustomSize) {
-                        const tempDiv = document.createElement('div');
-                        tempDiv.style.cssText = `position: absolute; width: ${OPTIONS.openedImageWidth}; height: ${OPTIONS.openedImageHeight}; visibility: hidden;`;
-                        document.body.appendChild(tempDiv);
-                        const tempRect = tempDiv.getBoundingClientRect();
-                        document.body.removeChild(tempDiv);
-
-                        const centeredLeft = frameR.left - mainR.left + (frameR.width - tempRect.width) / 2;
-                        const centeredTop = frameR.top - mainR.top + (frameR.height - tempRect.height) / 2;
-
-                        enlargedOverlay.style.left = `${centeredLeft}px`;
-                        enlargedOverlay.style.top = `${centeredTop}px`;
-                    } else {
-                        enlargedOverlay.style.left = `${frameR.left - mainR.left}px`;
-                        enlargedOverlay.style.top = `${frameR.top - mainR.top}px`;
-                        enlargedOverlay.style.width = `${frameR.width}px`;
-                        enlargedOverlay.style.height = `${frameR.height}px`;
-                    }
-                }
             });
             ro.observe(rootEl);
 
-            // 4. Apply initial transform
             applyTransform(rotation.x, rotation.y);
 
-            // 5. Setup Scrim/Escape key close listeners
-            // This logic is for the enlarge animation, which is no longer
-            // triggered by default, but we'll leave it.
-            const closeEnlargedView = () => {
-                if (performance.now() - openStartedAt < 250) return;
-                const el = focusedEl;
-                if (!el) return;
-
-                const parent = el.parentElement;
-                const overlay = viewerEl?.querySelector('.enlarge');
-                if (!overlay) return;
-
-                const refDiv = parent.querySelector('.item__image--reference');
-                const originalPos = originalTilePosition;
-
-                if (!originalPos) {
-                    overlay.remove();
-                    if (refDiv) refDiv.remove();
-                    parent.style.setProperty('--rot-y-delta', '0deg');
-                    parent.style.setProperty('--rot-x-delta', '0deg');
-                    el.style.visibility = '';
-                    el.style.zIndex = 0;
-                    focusedEl = null;
-                    rootEl?.removeAttribute('data-enlarging');
-                    opening = false;
-                    unlockScroll();
-                    return;
-                }
-
-                const currentRect = overlay.getBoundingClientRect();
-                const rootRect = rootEl.getBoundingClientRect();
-                const originalPosRelativeToRoot = {
-                    left: originalPos.left - rootRect.left,
-                    top: originalPos.top - rootRect.top,
-                    width: originalPos.width,
-                    height: originalPos.height
-                };
-                const overlayRelativeToRoot = {
-                    left: currentRect.left - rootRect.left,
-                    top: currentRect.top - rootRect.top,
-                    width: currentRect.width,
-                    height: currentRect.height
-                };
-
-                const animatingOverlay = document.createElement('div');
-                animatingOverlay.className = 'enlarge-closing';
-                animatingOverlay.style.cssText = `position:absolute;left:${overlayRelativeToRoot.left}px;top:${overlayRelativeToRoot.top}px;width:${overlayRelativeToRoot.width}px;height:${overlayRelativeToRoot.height}px;z-index:9999;border-radius: var(--enlarge-radius, 32px);overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:all ${OPTIONS.enlargeTransitionMs}ms ease-out;pointer-events:none;margin:0;transform:none;`;
-
-                const originalImg = overlay.querySelector('img');
-                if (originalImg) {
-                    const img = originalImg.cloneNode();
-                    img.style.cssText = 'width:100%;height:100%;object-fit:cover;';
-                    animatingOverlay.appendChild(img);
-                }
-
-                overlay.remove();
-                rootEl.appendChild(animatingOverlay);
-
-                void animatingOverlay.getBoundingClientRect();
-
-                requestAnimationFrame(() => {
-                    animatingOverlay.style.left = originalPosRelativeToRoot.left + 'px';
-                    animatingOverlay.style.top = originalPosRelativeToRoot.top + 'px';
-                    animatingOverlay.style.width = originalPosRelativeToRoot.width + 'px';
-                    animatingOverlay.style.height = originalPosRelativeToRoot.height + 'px';
-                    animatingOverlay.style.opacity = '0';
-                });
-
-                const cleanup = () => {
-                    animatingOverlay.remove();
-                    originalTilePosition = null;
-                    if (refDiv) refDiv.remove();
-                    parent.style.transition = 'none';
-                    el.style.transition = 'none';
-                    parent.style.setProperty('--rot-y-delta', '0deg');
-                    parent.style.setProperty('--rot-x-delta', '0deg');
-
-                    requestAnimationFrame(() => {
-                        el.style.visibility = '';
-                        el.style.opacity = '0';
-                        el.style.zIndex = 0;
-                        focusedEl = null;
-                        rootEl?.removeAttribute('data-enlarging');
-
-                        requestAnimationFrame(() => {
-                            parent.style.transition = '';
-                            el.style.transition = 'opacity 300ms ease-out';
-
-                            requestAnimationFrame(() => {
-                                el.style.opacity = '1';
-                                setTimeout(() => {
-                                    el.style.transition = '';
-                                    el.style.opacity = '';
-                                    opening = false;
-                                    if (!dragging && rootEl?.getAttribute('data-enlarging') !== 'true')
-                                        document.body.classList.remove('dg-scroll-lock');
-                                }, 300);
-                            });
-                        });
-                    });
-                };
-                animatingOverlay.addEventListener('transitionend', cleanup, { once: true });
-            };
-
-            scrimEl.addEventListener('click', closeEnlargedView);
-            window.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') closeEnlargedView();
-            });
-
-            // 6. Cleanup scroll lock on page exit
             window.addEventListener('beforeunload', () => {
                 document.body.classList.remove('dg-scroll-lock');
             });
-
-
-            // --- Drag Logic (replaces useGesture) ---
 
             mainEl.addEventListener('pointerdown', (e) => {
                 if (focusedEl) return;
@@ -2005,7 +1527,6 @@
                 startRot = { ...rotation };
                 startPos = { x: e.clientX, y: e.clientY };
 
-                // Init velocity tracking
                 lastMoveTime = performance.now();
                 lastMovePos = { x: e.clientX, y: e.clientY };
                 lastVelocity = { x: 0, y: 0 };
@@ -2034,15 +1555,14 @@
                     applyTransform(nextX, nextY);
                 }
 
-                // Calculate velocity
                 const now = performance.now();
                 const dt = now - lastMoveTime;
-                if (dt > 16) { // ~60fps
+                if (dt > 16) {
                     const dx = e.clientX - lastMovePos.x;
                     const dy = e.clientY - lastMovePos.y;
 
-                    lastVelocity.x = dx / dt; // px/ms
-                    lastVelocity.y = dy / dt; // px/ms
+                    lastVelocity.x = dx / dt;
+                    lastVelocity.y = dy / dt;
 
                     lastMoveTime = now;
                     lastMovePos = { x: e.clientX, y: e.clientY };
@@ -2056,7 +1576,6 @@
                 let vx = lastVelocity.x;
                 let vy = lastVelocity.y;
 
-                // Fallback velocity calculation from original code
                 if (Math.abs(vx) < 0.001 && Math.abs(vy) < 0.001 && moved) {
                     const [mx, my] = [e.clientX - startPos.x, e.clientY - startPos.y];
                     vx = clamp((mx / OPTIONS.dragSensitivity) * 0.02, -1.2, 1.2);
@@ -2075,53 +1594,52 @@
 
         });
     </script>
+
     <script>
         // Facts Counter Animation
-const counters = document.querySelectorAll('.counter-value');
+        const counters = document.querySelectorAll('.counter-value');
 
-const startCounter = (counter) => {
-    const target = +counter.dataset.target;
-    const duration = 2000;
-    let start = 0;
-    const increment = target / (duration / 16);
+        const startCounter = (counter) => {
+            const target = +counter.dataset.target;
+            const duration = 2000;
+            let start = 0;
+            const increment = target / (duration / 16);
 
-    const updateCounter = () => {
-        start += increment;
+            const updateCounter = () => {
+                start += increment;
 
-        if (start < target) {
-            counter.innerText = Math.floor(start);
-            requestAnimationFrame(updateCounter);
-        } else {
-            counter.innerText = target + "+";
-        }
-    };
+                if (start < target) {
+                    counter.innerText = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
 
-    updateCounter();
-};
+            updateCounter();
+        };
 
-const factsSection = document.querySelector('#facts-counter');
+        const factsSection = document.querySelector('#facts-counter');
 
-if (factsSection) {
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-
-                counters.forEach(counter => {
-                    if (!counter.classList.contains('counted')) {
-                        counter.classList.add('counted');
-                        startCounter(counter);
+        if (factsSection) {
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        counters.forEach(counter => {
+                            if (!counter.classList.contains('counted')) {
+                                counter.classList.add('counted');
+                                startCounter(counter);
+                            }
+                        });
+                        counterObserver.unobserve(entry.target);
                     }
                 });
+            }, {
+                threshold: 0.3
+            });
 
-                counterObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.3
-    });
-
-    counterObserver.observe(factsSection);
-}
+            counterObserver.observe(factsSection);
+        }
     </script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
