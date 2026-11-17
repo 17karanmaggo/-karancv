@@ -52,7 +52,12 @@
             overflow: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: var(--font-heading);
             font-weight: 600;
             color: #fff;
@@ -271,12 +276,10 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255, 255, 255, .08),
-                transparent
-            );
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, .08),
+                    transparent);
             transition: .6s;
         }
 
@@ -422,12 +425,19 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
                 transform: translateX(-50%) translateY(0);
             }
+
             40% {
                 transform: translateX(-50%) translateY(-20px);
             }
+
             60% {
                 transform: translateX(-50%) translateY(-10px);
             }
@@ -515,10 +525,21 @@
             z-index: 1;
         }
 
-        .timeline-item.left { left: 0; }
-        .timeline-item.right { left: 50%; }
-        .timeline-item.left::after { right: -10px; }
-        .timeline-item.right::after { left: -10px; }
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-item.left::after {
+            right: -10px;
+        }
+
+        .timeline-item.right::after {
+            left: -10px;
+        }
 
         .timeline-content {
             padding: 20px 30px;
@@ -528,27 +549,46 @@
             border: 1px solid #333;
         }
 
-        .timeline-content h3 { color: var(--primary-color); }
-        .timeline-content .company { font-weight: 600; color: #ccc; }
+        .timeline-content h3 {
+            color: var(--primary-color);
+        }
+
+        .timeline-content .company {
+            font-weight: 600;
+            color: #ccc;
+        }
+
         .timeline-content .date {
             font-size: 0.9rem;
             color: #888;
             font-weight: 300;
             margin-bottom: 10px;
         }
-        .timeline-content .badge { margin-right: 5px; }
+
+        .timeline-content .badge {
+            margin-right: 5px;
+        }
 
         @media (max-width: 767.98px) {
-            .timeline::after { left: 30px; }
+            .timeline::after {
+                left: 30px;
+            }
+
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
             }
+
             .timeline-item.left,
-            .timeline-item.right { left: 0%; }
+            .timeline-item.right {
+                left: 0%;
+            }
+
             .timeline-item.left::after,
-            .timeline-item.right::after { left: 21px; }
+            .timeline-item.right::after {
+                left: 21px;
+            }
         }
 
         /*
@@ -630,8 +670,13 @@
         }
 
         @media (max-width: 767px) {
-            .project-card { height: 280px; }
-            .project-overlay { padding: 20px; }
+            .project-card {
+                height: 280px;
+            }
+
+            .project-overlay {
+                padding: 20px;
+            }
         }
 
         /*
@@ -716,9 +761,17 @@
         }
 
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         @media(max-width: 767px) {
@@ -769,10 +822,21 @@
             }
         }
 
-        .animate-child:nth-child(1) { animation-delay: 0.1s; }
-        .animate-child:nth-child(2) { animation-delay: 0.2s; }
-        .animate-child:nth-child(3) { animation-delay: 0.3s; }
-        .animate-child:nth-child(4) { animation-delay: 0.4s; }
+        .animate-child:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .animate-child:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .animate-child:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .animate-child:nth-child(4) {
+            animation-delay: 0.4s;
+        }
 
         /*
         ========================================
@@ -799,7 +863,9 @@
             --item-height: calc(var(--circ) / var(--segments-y));
         }
 
-        #gallery .sphere-root * { box-sizing: border-box; }
+        #gallery .sphere-root * {
+            box-sizing: border-box;
+        }
 
         #gallery .sphere,
         #gallery .item,
@@ -885,7 +951,9 @@
             transform: translateZ(0);
         }
 
-        #gallery .item__image:focus { outline: none; }
+        #gallery .item__image:focus {
+            outline: none;
+        }
 
         #gallery .item__image img {
             width: 100%;
@@ -1068,153 +1136,153 @@
 
             <div class="row g-4 animate-on-scroll">
                 <!-- CARD 4: FRONTEND DEVELOPMENT -->
-<div class="col-md-6 col-lg-6 animate-child">
-    <div class="skill-glow-card" style="--card-accent: #00aaff;">
-        <div>
-            <div class="skill-card-icon" style="color: #00aaff;">
-                <i class="fa-solid fa-code"></i>
-            </div>
+                <div class="col-md-6 col-lg-6 animate-child">
+                    <div class="skill-glow-card" style="--card-accent: #00aaff;">
+                        <div>
+                            <div class="skill-card-icon" style="color: #00aaff;">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
 
-            <h3 class="skill-card-title">Frontend Development</h3>
+                            <h3 class="skill-card-title">Frontend Development</h3>
 
-            <p class="skill-card-text">
-                Developing responsive, pixel-perfect web interfaces using HTML5,
-                CSS3/SCSS, Bootstrap 5, Flexbox, Grid, and modern JavaScript.
-            </p>
-        </div>
+                            <p class="skill-card-text">
+                                Developing responsive, pixel-perfect web interfaces using HTML5,
+                                CSS3/SCSS, Bootstrap 5, Flexbox, Grid, and modern JavaScript.
+                            </p>
+                        </div>
 
-        <div class="skill-tags-group">
-            <span class="skill-badge">
-                <i class="fa-brands fa-html5" style="color: #E34F26;"></i>
-                HTML5
-            </span>
+                        <div class="skill-tags-group">
+                            <span class="skill-badge">
+                                <i class="fa-brands fa-html5" style="color: #E34F26;"></i>
+                                HTML5
+                            </span>
 
-            <span class="skill-badge">
-                <i class="fa-brands fa-css3-alt" style="color: #1572B6;"></i>
-                CSS3 / SCSS
-            </span>
+                            <span class="skill-badge">
+                                <i class="fa-brands fa-css3-alt" style="color: #1572B6;"></i>
+                                CSS3 / SCSS
+                            </span>
 
-            <span class="skill-badge">
-                <i class="fa-brands fa-bootstrap" style="color: #7952B3;"></i>
-                Bootstrap 5
-            </span>
+                            <span class="skill-badge">
+                                <i class="fa-brands fa-bootstrap" style="color: #7952B3;"></i>
+                                Bootstrap 5
+                            </span>
 
-            <span class="skill-badge">
-                <i class="fa-brands fa-js" style="color: #F7DF1E;"></i>
-                JavaScript
-            </span>
-        </div>
-    </div>
-</div>
-              <!-- CARD 1: UI/UX DESIGN -->
-<div class="col-md-6 col-lg-6 animate-child">
-    <div class="skill-glow-card" style="--card-accent: #F24E1E;">
-        <div>
-            <div class="skill-card-icon" style="color: #F24E1E;">
-                <i class="fa-brands fa-figma"></i>
-            </div>
+                            <span class="skill-badge">
+                                <i class="fa-brands fa-js" style="color: #F7DF1E;"></i>
+                                JavaScript
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- CARD 1: UI/UX DESIGN -->
+                <div class="col-md-6 col-lg-6 animate-child">
+                    <div class="skill-glow-card" style="--card-accent: #F24E1E;">
+                        <div>
+                            <div class="skill-card-icon" style="color: #F24E1E;">
+                                <i class="fa-brands fa-figma"></i>
+                            </div>
 
-            <h3 class="skill-card-title">UI/UX Design</h3>
+                            <h3 class="skill-card-title">UI/UX Design</h3>
 
-            <p class="skill-card-text">
-                Crafting intuitive user interfaces, wireframes, interactive prototypes,
-                and reusable design components using Figma, Auto Layout, and responsive
-                design principles.
-            </p>
-        </div>
+                            <p class="skill-card-text">
+                                Crafting intuitive user interfaces, wireframes, interactive prototypes,
+                                and reusable design components using Figma, Auto Layout, and responsive
+                                design principles.
+                            </p>
+                        </div>
 
-        <div class="skill-tags-group">
-            <span class="skill-badge">
-                <i class="fa-solid fa-shapes text-warning"></i>
-                UI/UX Design
-            </span>
+                        <div class="skill-tags-group">
+                            <span class="skill-badge">
+                                <i class="fa-solid fa-shapes text-warning"></i>
+                                UI/UX Design
+                            </span>
 
-            <span class="skill-badge">
-                <i class="fa-solid fa-layer-group text-info"></i>
-                Design Systems
-            </span>
+                            <span class="skill-badge">
+                                <i class="fa-solid fa-layer-group text-info"></i>
+                                Design Systems
+                            </span>
 
-            <span class="skill-badge">
-                <i class="fa-solid fa-wand-magic-sparkles text-danger"></i>
-                Prototyping
-            </span>
-        </div>
-    </div>
-</div>
-
-
-<!-- CARD 2: WORDPRESS DEVELOPMENT -->
-<div class="col-md-6 col-lg-6 animate-child">
-    <div class="skill-glow-card" style="--card-accent: #21759B;">
-        <div>
-            <div class="skill-card-icon" style="color: #21759B;">
-                <i class="fa-brands fa-wordpress"></i>
-            </div>
-
-            <h3 class="skill-card-title">WordPress Development</h3>
-
-            <p class="skill-card-text">
-                Designing and developing responsive WordPress websites with theme
-                customization, Elementor, structured layouts, and performance-focused
-                implementation.
-            </p>
-        </div>
-
-        <div class="skill-tags-group">
-            <span class="skill-badge">
-                <i class="fa-brands fa-wordpress text-info"></i>
-                CMS Development
-            </span>
-
-            <span class="skill-badge">
-                <i class="fa-solid fa-paintbrush text-success"></i>
-                Theme Customization
-            </span>
-
-            <span class="skill-badge">
-                <i class="fa-solid fa-mobile-screen-button text-warning"></i>
-                Responsive Design
-            </span>
-        </div>
-    </div>
-</div>
+                            <span class="skill-badge">
+                                <i class="fa-solid fa-wand-magic-sparkles text-danger"></i>
+                                Prototyping
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
 
-<!-- CARD 3: GRAPHIC & VISUAL DESIGN -->
-<div class="col-md-6 col-lg-6 animate-child">
-    <div class="skill-glow-card" style="--card-accent: #31A8FF;">
-        <div>
-            <div class="skill-card-icon" style="color: #31A8FF;">
-                <i class="fa-solid fa-palette"></i>
-            </div>
+                <!-- CARD 2: WORDPRESS DEVELOPMENT -->
+                <div class="col-md-6 col-lg-6 animate-child">
+                    <div class="skill-glow-card" style="--card-accent: #21759B;">
+                        <div>
+                            <div class="skill-card-icon" style="color: #21759B;">
+                                <i class="fa-brands fa-wordpress"></i>
+                            </div>
 
-            <h3 class="skill-card-title">Graphic &amp; Visual Design</h3>
+                            <h3 class="skill-card-title">WordPress Development</h3>
 
-            <p class="skill-card-text">
-                Creating professional web graphics, banners, social media creatives,
-                image compositions, and digital branding assets for web and marketing
-                platforms.
-            </p>
-        </div>
+                            <p class="skill-card-text">
+                                Designing and developing responsive WordPress websites with theme
+                                customization, Elementor, structured layouts, and performance-focused
+                                implementation.
+                            </p>
+                        </div>
 
-        <div class="skill-tags-group">
-            <span class="skill-badge">
-                <i class="fa-solid fa-image text-primary"></i>
-                Adobe Photoshop
-            </span>
+                        <div class="skill-tags-group">
+                            <span class="skill-badge">
+                                <i class="fa-brands fa-wordpress text-info"></i>
+                                CMS Development
+                            </span>
 
-            <span class="skill-badge">
-                <i class="fa-solid fa-pen-nib" style="color: #00C4CC;"></i>
-                Canva
-            </span>
+                            <span class="skill-badge">
+                                <i class="fa-solid fa-paintbrush text-success"></i>
+                                Theme Customization
+                            </span>
 
-            <span class="skill-badge">
-                <i class="fa-solid fa-vector-square text-info"></i>
-                Digital Branding
-            </span>
-        </div>
-    </div>
-</div>
+                            <span class="skill-badge">
+                                <i class="fa-solid fa-mobile-screen-button text-warning"></i>
+                                Responsive Design
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- CARD 3: GRAPHIC & VISUAL DESIGN -->
+                <div class="col-md-6 col-lg-6 animate-child">
+                    <div class="skill-glow-card" style="--card-accent: #31A8FF;">
+                        <div>
+                            <div class="skill-card-icon" style="color: #31A8FF;">
+                                <i class="fa-solid fa-palette"></i>
+                            </div>
+
+                            <h3 class="skill-card-title">Graphic &amp; Visual Design</h3>
+
+                            <p class="skill-card-text">
+                                Creating professional web graphics, banners, social media creatives,
+                                image compositions, and digital branding assets for web and marketing
+                                platforms.
+                            </p>
+                        </div>
+
+                        <div class="skill-tags-group">
+                            <span class="skill-badge">
+                                <i class="fa-solid fa-image text-primary"></i>
+                                Adobe Photoshop
+                            </span>
+
+                            <span class="skill-badge">
+                                <i class="fa-solid fa-pen-nib" style="color: #00C4CC;"></i>
+                                Canva
+                            </span>
+
+                            <span class="skill-badge">
+                                <i class="fa-solid fa-vector-square text-info"></i>
+                                Digital Branding
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -1438,63 +1506,63 @@
             let hasTriggered = false;
 
             // Official Vector SVG Icons
-           const SKILLS_DATA = [
-    {
-        name: "HTML5",
-        color: "#E34F26",
-        svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#E34F26" d="M71 460L30 0h452l-41 460-185 52z"/><path fill="#EF652A" d="M256 472l149-41 35-394H256z"/><path fill="#ECECEC" d="M256 176h-84l-6-67h90V45H102l18 201h136zm0 147l-74-20-5-58h-67l9 115 137 38z"/><path fill="#FFF" d="M256 176v64h81l-8 87-73 20v67l137-38 18-200zM256 45v64h148l6-64z"/></svg>`
-    },
-    {
-        name: "CSS3",
-        color: "#1572B6",
-        svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1572B6" d="M71 460L30 0h452l-41 460-185 52z"/><path fill="#33A9DC" d="M256 472l149-41 35-394H256z"/><path fill="#ECECEC" d="M256 176h-84l-6-67h90V45H102l18 201h136zm0 147l-74-20-5-58h-67l9 115 137 38z"/><path fill="#FFF" d="M256 176v64h81l-8 87-73 20v67l137-38 18-200zM256 45v64h148l6-64z"/></svg>`
-    },
-    {
-        name: "JavaScript",
-        color: "#F7DF1E",
-        svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630"><rect width="630" height="630" fill="#f7df1e" rx="100"/><path d="m165.3 490.4 46.6-28.3c10.7 18 20.3 33.2 44 33.2 22.4 0 36.8-9 36.8-44.1V233.7h58.3v218.4c0 68.3-40.1 98.9-96.1 98.9-52.6 0-82.7-27.6-89.6-60.6m217.4-8.8 46.6-27c13.3 22 33 38.6 62.4 38.6 26.2 0 42.9-13.3 42.9-31.8 0-22.7-18-30.8-49.3-44.2l-16.9-7.3c-48.9-20.9-81.4-47.3-81.4-102.3 0-51 39.4-89.8 101.4-89.8 43.9 0 75.8 15.6 97.4 53.6l-44.4 28.5c-9.7-17.3-22.7-25.2-53-25.2-24.6 0-38.6 12.1-38.6 28.2 0 19.8 13.9 27.4 45.4 41l16.9 7.3c58.3 25.1 86.8 51.5 86.8 106.1 0 61-48.3 93.6-107.5 93.6-59.9-.1-95.6-32.9-108.7-69.2"/></svg>`
-    },
-    {
-        name: "Bootstrap",
-        color: "#7952B3",
-        svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#7952B3" d="M414 74C375 25 320 0 256 0S137 25 98 74C60 122 41 187 41 256s19 134 57 182c39 49 94 74 158 74s119-25 158-74c38-48 57-113 57-182s-19-134-57-182z"/><path fill="#FFF" d="M195 125h95c29 0 51 6 65 19 15 13 22 31 22 55 0 15-4 27-11 38-8 10-18 18-32 23 18 4 31 13 41 26 9 13 14 29 14 47 0 26-9 47-26 62-17 15-42 22-73 22h-95V125zm53 103h37c13 0 23-3 30-8 6-6 10-14 10-25 0-11-3-19-10-24-6-6-16-9-30-9h-37v66zm0 144h45c15 0 27-3 34-10 8-7 12-16 12-29 0-12-4-21-12-28-7-7-19-10-34-10h-45v77z"/></svg>`
-    },
-    {
-        name: "Angular",
-        color: "#DD0031",
-        svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><polygon fill="#DD0031" points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2"/><polygon fill="#C3002F" points="125,30 125,52.2 125,52.1 125,153.4 125,153.4 125,230 203.9,186.3 218.1,63.2"/><path fill="#FFF" d="M125,52.1L66.8,182.6h21.7l11.7-29.2h49.4l11.7,29.2H183L125,52.1z M142,135h-34.4L125,93.4L142,135z"/></svg>`
-    },
-    // {
-    //     name: "SCSS",
-    //     color: "#CF649A",
-    //     svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"><path fill="#CF649A" d="M85.4 27.2c-1.8-7.7-7.8-13.4-15.6-13.4-9.6 0-14.7 6.4-17.9 12.8-4.2-2.5-9.3-3.8-14.9-3.8-13.8 0-23.7 8.7-23.7 21 0 13.8 11.2 18.7 18.8 21.1 5.9 1.9 10.4 3.7 10.4 7.4 0 3.7-3.9 6.2-9 6.2-6.5 0-11.8-3.6-14.6-9.1l-7.7 4.5c4.1 8 12.3 13.3 22.3 13.3 10.9 0 18.2-6.5 18.2-15.4 0-14.5-12.7-18.7-20.2-21.1-5.1-1.6-9.1-3.3-9.1-6.8 0-3.3 3.1-5.6 7.4-5.6 5.8 0 10.7 2.8 13.7 7.2 2.6-3.8 6.4-9.4 12.4-9.4 4.5 0 7.8 3.2 8.7 7.6 1.4-1.2 3.8-2.6 7.3-2.6 7.1 0 10.4 5.2 10.4 11.2 0 7.8-5.7 14.1-13.6 14.1-4.7 0-8.2-2.4-9.6-6.1-2.9 4.3-7.5 7.8-14.1 7.8-1.5 0-2.8-.2-4.1-.5 1.5 3.3 4.6 5.7 8.8 5.7 5.2 0 9.2-2.8 11.7-6.9l6.7 4.7c-4 6.2-10.7 10.5-18.4 10.5-9.2 0-15.9-6-16.7-14.6 2.3.4 4.7.6 7.1.6 7.1 0 12.3-3.4 15.6-8.2-.4-1.6-.6-3.4-.6-5.2 0-10.7 7.5-19.1 17.6-19.1 5.3 0 9.3 2.1 11.7 5.7.9-5.7-1.3-11.5-4.5-15.3zM72.2 49.3c3.8 0 6.6-3.3 6.6-7.3 0-3.4-1.9-5.8-5-5.8-3.8 0-7.3 3.6-7.3 7.8 0 3.3 2.5 5.3 5.7 5.3z"/></svg>`
-    // },
-    {
-        name: "Figma",
-        color: "#F24E1E",
-        svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><path fill="#0ACF83" d="M50 300c27.6 0 50-22.4 50-50v-50H50c-27.6 0-50 22.4-50 50s22.4 50 50 50z"/><path fill="#A259FF" d="M0 150c0-27.6 22.4-50 50-50h50v100H50c-27.6 0-50-22.4-50-50z"/><path fill="#F24E1E" d="M0 50C0 22.4 22.4 0 50 0h50v100H50C22.4 100 0 77.6 0 50z"/><path fill="#FF7262" d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50h-50V0z"/><path fill="#1ABCFE" d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z"/></svg>`
-    },
-    {
-        name: "WordPress",
-        color: "#21759B",
-        svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#21759B" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm-201.7 256c0-42.5 13.3-81.8 36-114.1l111.4 305.2C106.8 415.5 54.3 342.3 54.3 256zm201.7 201.7c-33.4 0-64.6-9.6-91-26.2l56.8-165.1 58.1 159.2c.5 1.2 1.2 2.3 2.1 3.2-8.3 18.2-16.7 28.9-26 28.9zm30.8-316.5c16.3-1.4 31-2.6 31-2.6 13.7-1.1 12.3-21.2-1.4-20.6 0 0-41.4 3.4-68.6 3.4-25.7 0-67.4-3.4-67.4-3.4-13.7-.6-15.1 19.4-1.4 20.6 0 0 14.1 1.1 28.9 2.6l42.6 117.2 25.1-75.1-17.8-42.7zm136.2 82.2c0-30.8-11.1-52.2-20.6-68.8-12.6-20.3-24.6-37.4-24.6-57.7 0-22.6 17.1-43.7 41.1-43.7 1 0 2.1.1 3.1.2 46.2 38.6 75.3 96.6 75.3 161.4 0 46.5-15.1 89.5-40.6 124.3l-33.7-115.7z"/></svg>`
-    },
-    {
-        name: "Photoshop",
-        color: "#31A8FF",
-        svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="#001E36" rx="90"/><path fill="#31A8FF" d="M125 125h95c32 0 56 8 72 23 16 16 24 38 24 66 0 29-8 52-25 67-16 16-41 23-74 23h-44v108h-48V125zm48 136h41c19 0 33-4 42-12s13-20 13-37c0-16-4-28-13-36s-23-11-41-11h-42v96zm170 82c12 11 28 17 48 17 14 0 25-3 33-8 8-6 12-13 12-22 0-8-3-15-10-20s-18-10-33-14c-28-7-48-16-60-27-12-11-18-26-18-44 0-21 8-38 24-51s37-19 63-19c21 0 39 4 54 13 15 8 25 21 30 38l-40 17c-4-10-10-17-18-22s-18-7-29-7c-12 0-22 3-29 8-7 6-10 13-10 21 0 7 3 13 9 18s17 9 32 13c29 7 50 16 63 28s19 28 19 48c0 23-9 42-26 56s-40 21-69 21c-27 0-50-6-68-18s-29-28-33-49l42-17c4 13 12 24 22 30z"/></svg>`
-    },
-    {
-        name: "Framer",
-        color: "#0055FF",
-        svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#0055FF" d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/></svg>`
-    },
-    {
-        name: "Canva",
-        color: "#00C4CC",
-        svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="canvaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00C4CC"/><stop offset="50%" stop-color="#0075FF"/><stop offset="100%" stop-color="#7D2AE8"/></linearGradient></defs><circle cx="50" cy="50" r="48" fill="url(#canvaGrad)"/><path fill="#FFFFFF" d="M68.5 61.2c-3.8 5.8-9.2 9.3-15.8 9.3-10.8 0-17.5-8.2-17.5-19.6 0-13.8 9.8-24.5 22.4-24.5 7.2 0 12.4 3.8 14.7 9.8l-7.2 3.6c-1.3-3.4-4-5.4-7.5-5.4-7.2 0-13.2 6.8-13.2 16.2 0 6.8 3.9 11.6 9.8 11.6 3.6 0 6.8-1.8 8.9-4.8l5.4 3.8z"/></svg>`
-    }
-];
+            const SKILLS_DATA = [
+                {
+                    name: "HTML5",
+                    color: "#E34F26",
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#E34F26" d="M71 460L30 0h452l-41 460-185 52z"/><path fill="#EF652A" d="M256 472l149-41 35-394H256z"/><path fill="#ECECEC" d="M256 176h-84l-6-67h90V45H102l18 201h136zm0 147l-74-20-5-58h-67l9 115 137 38z"/><path fill="#FFF" d="M256 176v64h81l-8 87-73 20v67l137-38 18-200zM256 45v64h148l6-64z"/></svg>`
+                },
+                {
+                    name: "CSS3",
+                    color: "#1572B6",
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#1572B6" d="M71 460L30 0h452l-41 460-185 52z"/><path fill="#33A9DC" d="M256 472l149-41 35-394H256z"/><path fill="#ECECEC" d="M256 176h-84l-6-67h90V45H102l18 201h136zm0 147l-74-20-5-58h-67l9 115 137 38z"/><path fill="#FFF" d="M256 176v64h81l-8 87-73 20v67l137-38 18-200zM256 45v64h148l6-64z"/></svg>`
+                },
+                {
+                    name: "JavaScript",
+                    color: "#F7DF1E",
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630"><rect width="630" height="630" fill="#f7df1e" rx="100"/><path d="m165.3 490.4 46.6-28.3c10.7 18 20.3 33.2 44 33.2 22.4 0 36.8-9 36.8-44.1V233.7h58.3v218.4c0 68.3-40.1 98.9-96.1 98.9-52.6 0-82.7-27.6-89.6-60.6m217.4-8.8 46.6-27c13.3 22 33 38.6 62.4 38.6 26.2 0 42.9-13.3 42.9-31.8 0-22.7-18-30.8-49.3-44.2l-16.9-7.3c-48.9-20.9-81.4-47.3-81.4-102.3 0-51 39.4-89.8 101.4-89.8 43.9 0 75.8 15.6 97.4 53.6l-44.4 28.5c-9.7-17.3-22.7-25.2-53-25.2-24.6 0-38.6 12.1-38.6 28.2 0 19.8 13.9 27.4 45.4 41l16.9 7.3c58.3 25.1 86.8 51.5 86.8 106.1 0 61-48.3 93.6-107.5 93.6-59.9-.1-95.6-32.9-108.7-69.2"/></svg>`
+                },
+                {
+                    name: "Bootstrap",
+                    color: "#7952B3",
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#7952B3" d="M414 74C375 25 320 0 256 0S137 25 98 74C60 122 41 187 41 256s19 134 57 182c39 49 94 74 158 74s119-25 158-74c38-48 57-113 57-182s-19-134-57-182z"/><path fill="#FFF" d="M195 125h95c29 0 51 6 65 19 15 13 22 31 22 55 0 15-4 27-11 38-8 10-18 18-32 23 18 4 31 13 41 26 9 13 14 29 14 47 0 26-9 47-26 62-17 15-42 22-73 22h-95V125zm53 103h37c13 0 23-3 30-8 6-6 10-14 10-25 0-11-3-19-10-24-6-6-16-9-30-9h-37v66zm0 144h45c15 0 27-3 34-10 8-7 12-16 12-29 0-12-4-21-12-28-7-7-19-10-34-10h-45v77z"/></svg>`
+                },
+                {
+                    name: "Angular",
+                    color: "#DD0031",
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250"><polygon fill="#DD0031" points="125,30 125,30 125,30 31.9,63.2 46.1,186.3 125,230 125,230 125,230 203.9,186.3 218.1,63.2"/><polygon fill="#C3002F" points="125,30 125,52.2 125,52.1 125,153.4 125,153.4 125,230 203.9,186.3 218.1,63.2"/><path fill="#FFF" d="M125,52.1L66.8,182.6h21.7l11.7-29.2h49.4l11.7,29.2H183L125,52.1z M142,135h-34.4L125,93.4L142,135z"/></svg>`
+                },
+                // {
+                //     name: "SCSS",
+                //     color: "#CF649A",
+                //     svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80"><path fill="#CF649A" d="M85.4 27.2c-1.8-7.7-7.8-13.4-15.6-13.4-9.6 0-14.7 6.4-17.9 12.8-4.2-2.5-9.3-3.8-14.9-3.8-13.8 0-23.7 8.7-23.7 21 0 13.8 11.2 18.7 18.8 21.1 5.9 1.9 10.4 3.7 10.4 7.4 0 3.7-3.9 6.2-9 6.2-6.5 0-11.8-3.6-14.6-9.1l-7.7 4.5c4.1 8 12.3 13.3 22.3 13.3 10.9 0 18.2-6.5 18.2-15.4 0-14.5-12.7-18.7-20.2-21.1-5.1-1.6-9.1-3.3-9.1-6.8 0-3.3 3.1-5.6 7.4-5.6 5.8 0 10.7 2.8 13.7 7.2 2.6-3.8 6.4-9.4 12.4-9.4 4.5 0 7.8 3.2 8.7 7.6 1.4-1.2 3.8-2.6 7.3-2.6 7.1 0 10.4 5.2 10.4 11.2 0 7.8-5.7 14.1-13.6 14.1-4.7 0-8.2-2.4-9.6-6.1-2.9 4.3-7.5 7.8-14.1 7.8-1.5 0-2.8-.2-4.1-.5 1.5 3.3 4.6 5.7 8.8 5.7 5.2 0 9.2-2.8 11.7-6.9l6.7 4.7c-4 6.2-10.7 10.5-18.4 10.5-9.2 0-15.9-6-16.7-14.6 2.3.4 4.7.6 7.1.6 7.1 0 12.3-3.4 15.6-8.2-.4-1.6-.6-3.4-.6-5.2 0-10.7 7.5-19.1 17.6-19.1 5.3 0 9.3 2.1 11.7 5.7.9-5.7-1.3-11.5-4.5-15.3zM72.2 49.3c3.8 0 6.6-3.3 6.6-7.3 0-3.4-1.9-5.8-5-5.8-3.8 0-7.3 3.6-7.3 7.8 0 3.3 2.5 5.3 5.7 5.3z"/></svg>`
+                // },
+                {
+                    name: "Figma",
+                    color: "#F24E1E",
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300"><path fill="#0ACF83" d="M50 300c27.6 0 50-22.4 50-50v-50H50c-27.6 0-50 22.4-50 50s22.4 50 50 50z"/><path fill="#A259FF" d="M0 150c0-27.6 22.4-50 50-50h50v100H50c-27.6 0-50-22.4-50-50z"/><path fill="#F24E1E" d="M0 50C0 22.4 22.4 0 50 0h50v100H50C22.4 100 0 77.6 0 50z"/><path fill="#FF7262" d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50h-50V0z"/><path fill="#1ABCFE" d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z"/></svg>`
+                },
+                {
+                    name: "WordPress",
+                    color: "#21759B",
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#21759B" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm-201.7 256c0-42.5 13.3-81.8 36-114.1l111.4 305.2C106.8 415.5 54.3 342.3 54.3 256zm201.7 201.7c-33.4 0-64.6-9.6-91-26.2l56.8-165.1 58.1 159.2c.5 1.2 1.2 2.3 2.1 3.2-8.3 18.2-16.7 28.9-26 28.9zm30.8-316.5c16.3-1.4 31-2.6 31-2.6 13.7-1.1 12.3-21.2-1.4-20.6 0 0-41.4 3.4-68.6 3.4-25.7 0-67.4-3.4-67.4-3.4-13.7-.6-15.1 19.4-1.4 20.6 0 0 14.1 1.1 28.9 2.6l42.6 117.2 25.1-75.1-17.8-42.7zm136.2 82.2c0-30.8-11.1-52.2-20.6-68.8-12.6-20.3-24.6-37.4-24.6-57.7 0-22.6 17.1-43.7 41.1-43.7 1 0 2.1.1 3.1.2 46.2 38.6 75.3 96.6 75.3 161.4 0 46.5-15.1 89.5-40.6 124.3l-33.7-115.7z"/></svg>`
+                },
+                {
+                    name: "Photoshop",
+                    color: "#31A8FF",
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" fill="#001E36" rx="90"/><path fill="#31A8FF" d="M125 125h95c32 0 56 8 72 23 16 16 24 38 24 66 0 29-8 52-25 67-16 16-41 23-74 23h-44v108h-48V125zm48 136h41c19 0 33-4 42-12s13-20 13-37c0-16-4-28-13-36s-23-11-41-11h-42v96zm170 82c12 11 28 17 48 17 14 0 25-3 33-8 8-6 12-13 12-22 0-8-3-15-10-20s-18-10-33-14c-28-7-48-16-60-27-12-11-18-26-18-44 0-21 8-38 24-51s37-19 63-19c21 0 39 4 54 13 15 8 25 21 30 38l-40 17c-4-10-10-17-18-22s-18-7-29-7c-12 0-22 3-29 8-7 6-10 13-10 21 0 7 3 13 9 18s17 9 32 13c29 7 50 16 63 28s19 28 19 48c0 23-9 42-26 56s-40 21-69 21c-27 0-50-6-68-18s-29-28-33-49l42-17c4 13 12 24 22 30z"/></svg>`
+                },
+                {
+                    name: "Framer",
+                    color: "#0055FF",
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#0055FF" d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/></svg>`
+                },
+                {
+                    name: "Canva",
+                    color: "#00C4CC",
+                    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="canvaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00C4CC"/><stop offset="50%" stop-color="#0075FF"/><stop offset="100%" stop-color="#7D2AE8"/></linearGradient></defs><circle cx="50" cy="50" r="48" fill="url(#canvaGrad)"/><path fill="#FFFFFF" d="M68.5 61.2c-3.8 5.8-9.2 9.3-15.8 9.3-10.8 0-17.5-8.2-17.5-19.6 0-13.8 9.8-24.5 22.4-24.5 7.2 0 12.4 3.8 14.7 9.8l-7.2 3.6c-1.3-3.4-4-5.4-7.5-5.4-7.2 0-13.2 6.8-13.2 16.2 0 6.8 3.9 11.6 9.8 11.6 3.6 0 6.8-1.8 8.9-4.8l5.4 3.8z"/></svg>`
+                }
+            ];
 
             // Pre-load SVGs
             SKILLS_DATA.forEach(skill => {
@@ -1595,7 +1663,7 @@
                     // Round Ball Container
                     ctx.beginPath();
                     ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
-                    
+
                     const grad = ctx.createRadialGradient(-this.radius * 0.3, -this.radius * 0.3, this.radius * 0.1, 0, 0, this.radius);
                     grad.addColorStop(0, "#2c3444");
                     grad.addColorStop(0.7, "#141821");
@@ -1776,7 +1844,13 @@
                 { src: 'k-34.png', alt: 'firestone', href: 'https://firestonemetal.in/' },
                 { src: 'k-35.png', alt: 'ludhiana', href: 'https://ludhianasteel.com/' },
                 { src: 'k-36.png', alt: 'nvhc', href: 'https://nvhcfinance.com/' },
-                { src: 'k-37.png', alt: 'urja', href: 'https://www.urjasteels.com/' }
+                { src: 'k-37.png', alt: 'urja', href: 'https://www.urjasteels.com/' },
+                // { src: 'k-38.png', alt: 'urbnfettch', href: 'https://www.urbnfettch.com/' },
+                // { src: 'k-39.png', alt: 'madhavudyog', href: 'https://www.madhavudyog.com/' }
+                // { src: 'k-40.png', alt: '', href: '' },
+                // { src: 'k-41.png', alt: '', href: '' },
+                // { src: 'k-42.png', alt: '', href: '' },
+                // { src: 'k-43.png', alt: '', href: '' }
             ];
 
             const OPTIONS = {
